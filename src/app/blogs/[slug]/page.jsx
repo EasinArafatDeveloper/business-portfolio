@@ -1,8 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, Clock, Calendar, User } from "lucide-react";
+import { ArrowLeft, Clock, Calendar, User, Sparkles } from "lucide-react";
 import { notFound } from "next/navigation";
 import { getBlogBySlug, getBlogs } from "@/lib/blogs";
+import ReadingProgressBar from "@/app/component/ReadingProgressBar";
 
 export const dynamic = "force-dynamic";
 
@@ -142,68 +143,99 @@ export default async function BlogDetailPage({ params }) {
   const authorInitials = getAuthorInitials(blog.author);
 
   return (
-    <div className="min-h-screen w-full bg-[#050709] text-white">
-      <div className="relative h-[55vh] w-full overflow-hidden md:h-[65vh]">
-        <Image
-          src={blog.thumbnail}
-          alt={blog.title}
-          fill
-          priority
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050709] via-[#050709]/60 to-[#050709]/20" />
+    <div className="min-h-screen w-full bg-[#050709] text-white relative">
+      {/* Dynamic Scroll Progress Bar */}
+      <ReadingProgressBar accentColor={blog.accentColor} />
 
+      {/* Floating Navigation Button */}
+      <div className="mx-auto max-w-4xl px-6 pt-8">
         <Link
           href="/blogs"
-          className="absolute left-6 top-8 z-10 flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm text-white/70 backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:text-white md:left-10"
+          className="group inline-flex items-center gap-2 rounded-full border border-white/5 bg-white/5 px-4 py-2 text-xs font-semibold text-neutral-400 hover:text-white transition-all duration-300 hover:border-white/10 hover:bg-white/10"
         >
-          <ArrowLeft size={14} /> Back to Blog
+          <ArrowLeft size={12} className="transition-transform group-hover:-translate-x-1" /> Back to Articles
         </Link>
-
-        <div className="absolute bottom-10 left-6 z-10 md:left-10">
-          <span
-            className="rounded-full px-3 py-1.5 text-xs font-bold uppercase tracking-widest"
-            style={{
-              background: `${blog.accentColor}25`,
-              color: blog.accentColor,
-              border: `1px solid ${blog.accentColor}40`,
-            }}
-          >
-            {blog.category}
-          </span>
-        </div>
       </div>
 
-      <div className="mx-auto max-w-3xl px-6 py-12 lg:px-8">
-        <div className="mb-6 flex flex-wrap items-center gap-5 text-sm text-neutral-500">
-          <span className="flex items-center gap-1.5">
-            <User size={13} /> {blog.author}
-          </span>
-          <span className="flex items-center gap-1.5">
-            <Calendar size={13} /> {blog.date}
-          </span>
-          <span className="flex items-center gap-1.5">
-            <Clock size={13} /> {blog.readTime}
-          </span>
-        </div>
+      {/* Article Info Header */}
+      <header className="mx-auto max-w-4xl px-6 pt-12 pb-8">
+        <span
+          className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold uppercase tracking-wider border"
+          style={{
+            background: `${blog.accentColor}10`,
+            color: blog.accentColor,
+            borderColor: `${blog.accentColor}30`,
+          }}
+        >
+          <Sparkles size={12} style={{ color: blog.accentColor }} /> {blog.category}
+        </span>
 
-        <h1 className="mb-8 text-3xl font-extrabold leading-tight text-white md:text-4xl lg:text-5xl">
+        <h1 className="mt-6 text-3xl font-black leading-tight text-white md:text-5xl lg:text-6xl tracking-tight">
           {blog.title}
         </h1>
 
+        {/* Dynamic Author & Metadata Row */}
+        <div className="mt-8 flex items-center gap-4 border-t border-white/5 pt-8">
+          <div 
+            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-md font-extrabold border"
+            style={{
+              background: `${blog.accentColor}15`,
+              color: blog.accentColor,
+              borderColor: `${blog.accentColor}30`,
+            }}
+          >
+            {authorInitials}
+          </div>
+          <div>
+            <div className="flex items-center gap-2 text-sm font-semibold text-white">
+              <span>{blog.author}</span>
+              <span className="h-1 w-1 rounded-full bg-neutral-700" />
+              <span className="text-neutral-500 font-normal">Author</span>
+            </div>
+            <div className="mt-1 flex items-center gap-4 text-xs text-neutral-500 font-medium">
+              <span className="flex items-center gap-1.5">
+                <Calendar size={13} /> {blog.date}
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Clock size={13} /> {blog.readTime}
+              </span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Contained Cover Image with Glowing Shadow Overlay */}
+      <div className="mx-auto max-w-4xl px-6">
+        <div className="relative aspect-[16/9] md:aspect-[21/9] w-full overflow-hidden rounded-[24px] border border-white/10 bg-[#0f1015] shadow-[0_0_50px_rgba(0,0,0,0.5)] group">
+          <Image
+            src={blog.thumbnail}
+            alt={blog.title}
+            fill
+            priority
+            className="object-cover transition-transform duration-[2000ms] group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#050709]/80 via-transparent to-transparent opacity-80" />
+        </div>
+      </div>
+
+      {/* Article Body Content */}
+      <div className="mx-auto max-w-3xl px-6 py-12 lg:px-8">
+        {/* Quote-style Excerpt Block */}
         <div
-          className="mb-10 rounded-r-lg border-l-4 py-2 pl-5"
+          className="relative mb-12 rounded-2xl border-l-4 py-6 pl-8 pr-6 overflow-hidden"
           style={{
             borderColor: blog.accentColor,
-            background: `${blog.accentColor}10`,
+            background: `linear-gradient(90deg, ${blog.accentColor}12 0%, transparent 100%)`,
           }}
         >
-          <p className="text-base italic leading-relaxed text-neutral-300">
+          <div className="absolute top-2 right-4 text-white/5 font-serif text-8xl pointer-events-none select-none leading-none">“</div>
+          <p className="relative z-10 text-lg md:text-xl italic leading-relaxed text-neutral-200 font-medium">
             {blog.excerpt}
           </p>
         </div>
 
-        <div className="max-w-none space-y-4 blog-content-wrapper">
+        {/* Content Blocks */}
+        <div className="max-w-none space-y-6 blog-content-wrapper">
           {blog.content.trim().startsWith("<") ? (
             <div 
               className="rich-text-content"
@@ -213,7 +245,7 @@ export default async function BlogDetailPage({ params }) {
             contentBlocks.map((block, index) => {
               if (block.type === "h2") {
                 return (
-                  <h2 key={index} className="mb-4 mt-10 text-2xl font-bold text-white">
+                  <h2 key={index} className="mb-4 mt-12 text-3xl font-extrabold text-white tracking-tight border-b border-white/5 pb-2">
                     {block.text}
                   </h2>
                 );
@@ -223,7 +255,7 @@ export default async function BlogDetailPage({ params }) {
                 return (
                   <h3
                     key={index}
-                    className="mb-3 mt-8 text-xl font-bold"
+                    className="mb-3 mt-8 text-2xl font-bold tracking-tight"
                     style={{ color: blog.accentColor }}
                   >
                     {block.text}
@@ -233,11 +265,11 @@ export default async function BlogDetailPage({ params }) {
 
               if (block.type === "ul") {
                 return (
-                  <ul key={index} className="space-y-3">
+                  <ul key={index} className="space-y-4 my-6">
                     {block.items.map((item, itemIndex) => (
                       <li
                         key={`${index}-${itemIndex}`}
-                        className="flex gap-3 text-base leading-relaxed text-neutral-300"
+                        className="flex gap-3 text-lg leading-relaxed text-neutral-300"
                       >
                         <span
                           className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full"
@@ -252,9 +284,9 @@ export default async function BlogDetailPage({ params }) {
 
               if (block.type === "ol") {
                 return (
-                  <ol key={index} className="space-y-3 pl-5 text-base leading-relaxed text-neutral-300">
+                  <ol key={index} className="space-y-4 my-6 pl-6 text-lg leading-relaxed text-neutral-300 list-decimal">
                     {block.items.map((item, itemIndex) => (
-                      <li key={`${index}-${itemIndex}`} className="list-decimal pl-2">
+                      <li key={`${index}-${itemIndex}`} className="pl-2">
                         {item}
                       </li>
                     ))}
@@ -263,11 +295,11 @@ export default async function BlogDetailPage({ params }) {
               }
 
               if (block.type === "space") {
-                return <div key={index} className="h-2" />;
+                return <div key={index} className="h-4" />;
               }
 
               return (
-                <p key={index} className="text-base leading-loose text-neutral-400">
+                <p key={index} className="text-lg leading-relaxed text-neutral-300 mb-6">
                   {block.text}
                 </p>
               );
@@ -277,33 +309,61 @@ export default async function BlogDetailPage({ params }) {
 
         <style dangerouslySetInnerHTML={{ __html: `
           .rich-text-content {
-            color: #9ca3af;
+            color: #d1d5db;
             line-height: 1.8;
-            font-size: 1.1rem;
+            font-size: 1.125rem;
           }
-          .rich-text-content h1, .rich-text-content h2, .rich-text-content h3 {
+          .rich-text-content h1, .rich-text-content h2, .rich-text-content h3, .rich-text-content h4 {
             color: white;
             font-weight: 800;
-            margin-top: 2.5rem;
+            margin-top: 3rem;
             margin-bottom: 1.25rem;
-            line-height: 1.2;
+            line-height: 1.25;
+            letter-spacing: -0.025em;
           }
-          .rich-text-content h1 { font-size: 2.25rem; }
-          .rich-text-content h2 { font-size: 1.875rem; }
+          .rich-text-content h1 { font-size: 2.5rem; }
+          .rich-text-content h2 { 
+            font-size: 1.875rem; 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 0.5rem;
+          }
           .rich-text-content h3 { font-size: 1.5rem; color: ${blog.accentColor}; }
           
           .rich-text-content p {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.75rem;
           }
           
-          .rich-text-content ul, .rich-text-content ol {
-            margin-bottom: 1.5rem;
+          .rich-text-content ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 1.75rem;
+          }
+          .rich-text-content ul li {
+            position: relative;
+            padding-left: 1.75rem;
+            margin-bottom: 0.75rem;
+          }
+          .rich-text-content ul li::before {
+            content: "•";
+            color: ${blog.accentColor};
+            font-weight: bold;
+            position: absolute;
+            left: 0.5rem;
+            top: 0;
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+          }
+
+          .rich-text-content ol {
+            margin-bottom: 1.75rem;
             padding-left: 1.5rem;
+            list-style-type: decimal;
           }
-          
-          .rich-text-content ul { list-style-type: disc; }
-          .rich-text-content ol { list-style-type: decimal; }
-          
+          .rich-text-content ol li {
+            margin-bottom: 0.75rem;
+            padding-left: 0.5rem;
+          }
+
           .rich-text-content li {
             margin-bottom: 0.5rem;
           }
@@ -317,24 +377,61 @@ export default async function BlogDetailPage({ params }) {
             max-width: 100%;
             height: auto;
             border-radius: 1.5rem;
-            margin: 2.5rem 0;
+            margin: 3rem 0;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
           }
 
           .rich-text-content a {
             color: ${blog.accentColor};
-            text-decoration: underline;
-            text-underline-offset: 4px;
+            text-decoration: none;
+            border-bottom: 2px solid ${blog.accentColor}40;
             font-weight: 600;
+            transition: all 0.3s ease;
+          }
+          .rich-text-content a:hover {
+            color: white;
+            border-bottom-color: white;
+            background-color: ${blog.accentColor}15;
           }
 
           .rich-text-content blockquote {
             border-left: 4px solid ${blog.accentColor};
-            background: rgba(255, 255, 255, 0.03);
+            background: linear-gradient(90deg, ${blog.accentColor}08 0%, transparent 100%);
             padding: 1.5rem 2rem;
             font-style: italic;
             border-radius: 0 1rem 1rem 0;
-            margin: 2rem 0;
+            margin: 2.5rem 0;
+            color: #e5e7eb;
+          }
+
+          .rich-text-content code {
+            background: rgba(255, 255, 255, 0.06);
+            color: ${blog.accentColor};
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.375rem;
+            font-size: 0.9em;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            word-break: break-all;
+          }
+          
+          .rich-text-content pre {
+            background: #090a0f;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            overflow-x: auto;
+            margin: 2.5rem 0;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+          }
+          .rich-text-content pre code {
+            background: transparent;
+            color: #e5e7eb;
+            padding: 0;
+            border: none;
+            font-size: 0.95em;
+            word-break: normal;
           }
         ` }} />
 
@@ -347,7 +444,9 @@ export default async function BlogDetailPage({ params }) {
           <div>
             <p className="font-bold text-white">{blog.author}</p>
             <p className="text-sm text-neutral-400">
-              Published from the ScaleUp Web admin content panel.
+              {blog._id?.toString().startsWith("devto-")
+                ? "Technology contributor sharing insights via Dev.to."
+                : "Published from the ScaleUp Web admin content panel."}
             </p>
           </div>
         </div>

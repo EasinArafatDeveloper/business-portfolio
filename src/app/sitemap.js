@@ -65,7 +65,7 @@ export default async function sitemap() {
   let blogs = [];
 
   try {
-    blogs = await getBlogs({ status: "published" });
+    blogs = await getBlogs({ status: "published", localOnly: true });
   } catch (error) {
     console.error("Sitemap blog fetch failed:", error);
   }
