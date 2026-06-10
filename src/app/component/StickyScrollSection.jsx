@@ -14,10 +14,10 @@ const colorPalettes = [
 const ProjectCard = ({ project, index }) => {
   return (
     <div
-      className={`project-card w-full h-auto py-10 md:py-14 px-6 md:px-12 rounded-[2rem] md:rounded-[2.5rem] shadow-lg border border-white/40 sticky top-[18vh] mb-[6vh] overflow-hidden ${project.bgColor} ${project.textColor}`}
+      className={`project-card w-full min-h-[50vh] md:min-h-[58vh] flex items-center justify-center py-12 md:py-16 px-6 md:px-12 rounded-[2rem] md:rounded-[2.5rem] shadow-lg border border-white/40 sticky top-[18vh] mb-[6vh] overflow-hidden ${project.bgColor} ${project.textColor}`}
       style={{ zIndex: index + 1 }}
     >
-      <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+      <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center w-full">
         {/* Text Content */}
         <div className="order-2 lg:order-1">
           <div className="flex items-center gap-3 mb-4">
@@ -43,7 +43,7 @@ const ProjectCard = ({ project, index }) => {
 
         {/* Image Display */}
         <div className="order-1 lg:order-2 w-full">
-          <div className="relative group overflow-hidden rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.08)] bg-slate-900 border border-slate-200/80 w-full aspect-[16/10] flex flex-col transition-all duration-500 hover:shadow-[0_30px_60px_rgba(0,0,0,0.12)]">
+          <div className="relative group overflow-hidden rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.08)] bg-slate-900 border border-slate-200/80 w-full aspect-[16/11.5] flex flex-col transition-all duration-500 hover:shadow-[0_30px_60px_rgba(0,0,0,0.12)]">
             {/* macOS Browser Header Window Controls */}
             <div className="h-8 bg-slate-100 border-b border-slate-200/80 flex items-center px-4 gap-1.5 flex-shrink-0">
               <span className="w-2.5 h-2.5 rounded-full bg-rose-400" />
