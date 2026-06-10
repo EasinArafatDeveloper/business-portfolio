@@ -14,28 +14,28 @@ const colorPalettes = [
 const ProjectCard = ({ project, index }) => {
   return (
     <div
-      className={`project-card w-full min-h-[60vh] md:h-[70vh] flex items-center justify-center p-6 md:p-12 lg:p-16 rounded-[2.5rem] md:rounded-[3.5rem] shadow-xl border border-white/50 sticky top-[15vh] mb-[10vh] overflow-hidden ${project.bgColor} ${project.textColor}`}
+      className={`project-card w-full h-auto py-10 md:py-14 px-6 md:px-12 rounded-[2rem] md:rounded-[2.5rem] shadow-lg border border-white/40 sticky top-[18vh] mb-[6vh] overflow-hidden ${project.bgColor} ${project.textColor}`}
       style={{ zIndex: index + 1 }}
     >
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         {/* Text Content */}
         <div className="order-2 lg:order-1">
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex items-center gap-3 mb-4">
             <span className={`px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-white shadow-sm ${project.accentColor}`}>
               {project.category}
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[1.2] mb-4">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight leading-[1.2] mb-3">
             {project.title.replace(/Coustom/i, "Custom")}
           </h2>
-          <p className="text-lg md:text-xl opacity-75 leading-relaxed max-w-xl font-medium">
+          <p className="text-base md:text-lg opacity-75 leading-relaxed max-w-xl font-medium">
             {project.description}
           </p>
           <a 
             href={project.link || "#"} 
             target="_blank" 
             rel="noopener noreferrer" 
-            className={`inline-flex items-center justify-center mt-8 px-8 py-3.5 rounded-full font-bold text-sm tracking-wide transition-all duration-300 hover:scale-105 active:scale-95 bg-white shadow-md border border-slate-100 ${project.accentColor}`}
+            className={`inline-flex items-center justify-center mt-6 px-6 py-3 rounded-full font-bold text-xs tracking-wide transition-all duration-300 hover:scale-105 active:scale-95 bg-white shadow-md border border-slate-100 ${project.accentColor}`}
           >
             View Case Study
           </a>
@@ -43,13 +43,13 @@ const ProjectCard = ({ project, index }) => {
 
         {/* Image Display */}
         <div className="order-1 lg:order-2 w-full">
-          <div className="relative group overflow-hidden rounded-[2rem] shadow-[0_30px_60px_rgba(0,0,0,0.1)] bg-slate-900 border border-slate-200/80 w-full aspect-[4/3] flex flex-col transition-all duration-500 hover:shadow-[0_40px_80px_rgba(0,0,0,0.15)]">
+          <div className="relative group overflow-hidden rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.08)] bg-slate-900 border border-slate-200/80 w-full aspect-[16/10] flex flex-col transition-all duration-500 hover:shadow-[0_30px_60px_rgba(0,0,0,0.12)]">
             {/* macOS Browser Header Window Controls */}
-            <div className="h-9 bg-slate-100 border-b border-slate-200/80 flex items-center px-5 gap-1.5 flex-shrink-0">
-              <span className="w-3 h-3 rounded-full bg-rose-400" />
-              <span className="w-3 h-3 rounded-full bg-amber-400" />
-              <span className="w-3 h-3 rounded-full bg-emerald-400" />
-              <div className="mx-auto bg-slate-200/60 rounded-full text-[10px] px-8 py-1 text-slate-500 font-bold tracking-wide truncate max-w-[250px] text-center select-none font-mono">
+            <div className="h-8 bg-slate-100 border-b border-slate-200/80 flex items-center px-4 gap-1.5 flex-shrink-0">
+              <span className="w-2.5 h-2.5 rounded-full bg-rose-400" />
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+              <div className="mx-auto bg-slate-200/60 rounded-full text-[9px] px-6 py-0.5 text-slate-500 font-bold tracking-wide truncate max-w-[200px] text-center select-none font-mono">
                 {project.link && project.link !== "#" ? project.link.replace("https://", "").replace("http://", "").replace("www.", "") : "scaleupweb.xyz"}
               </div>
             </div>
