@@ -25,26 +25,44 @@ const ProjectCard = ({ project, index }) => {
               {project.category}
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.2] mb-4">
-            {project.title}
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[1.2] mb-4">
+            {project.title.replace(/Coustom/i, "Custom")}
           </h2>
-          <p className="text-lg md:text-xl opacity-75 leading-relaxed max-w-xl">
+          <p className="text-lg md:text-xl opacity-75 leading-relaxed max-w-xl font-medium">
             {project.description}
           </p>
-          <a href={project.link || "#"} target="_blank" rel="noopener noreferrer" className={`inline-block mt-8 px-8 py-3 rounded-full font-semibold transition-all hover:scale-105 active:scale-95 bg-white shadow-md border border-slate-100 ${project.accentColor}`}>
+          <a 
+            href={project.link || "#"} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className={`inline-flex items-center justify-center mt-8 px-8 py-3.5 rounded-full font-bold text-sm tracking-wide transition-all duration-300 hover:scale-105 active:scale-95 bg-white shadow-md border border-slate-100 ${project.accentColor}`}
+          >
             View Case Study
           </a>
         </div>
 
         {/* Image Display */}
-        <div className="order-1 lg:order-2">
-          <div className="relative group overflow-hidden rounded-3xl shadow-2xl bg-white p-2 aspect-video lg:aspect-square w-full">
-            <Image
-              src={project.image}
-              alt={project.title}
-              fill
-              className="object-cover rounded-2xl transform group-hover:scale-105 transition-transform duration-700 ease-out p-1"
-            />
+        <div className="order-1 lg:order-2 w-full">
+          <div className="relative group overflow-hidden rounded-[2rem] shadow-[0_30px_60px_rgba(0,0,0,0.1)] bg-slate-900 border border-slate-200/80 w-full aspect-[4/3] flex flex-col transition-all duration-500 hover:shadow-[0_40px_80px_rgba(0,0,0,0.15)]">
+            {/* macOS Browser Header Window Controls */}
+            <div className="h-9 bg-slate-100 border-b border-slate-200/80 flex items-center px-5 gap-1.5 flex-shrink-0">
+              <span className="w-3 h-3 rounded-full bg-rose-400" />
+              <span className="w-3 h-3 rounded-full bg-amber-400" />
+              <span className="w-3 h-3 rounded-full bg-emerald-400" />
+              <div className="mx-auto bg-slate-200/60 rounded-full text-[10px] px-8 py-1 text-slate-500 font-bold tracking-wide truncate max-w-[250px] text-center select-none font-mono">
+                {project.link && project.link !== "#" ? project.link.replace("https://", "").replace("http://", "").replace("www.", "") : "scaleupweb.xyz"}
+              </div>
+            </div>
+            {/* Browser Content / Screenshot */}
+            <div className="relative flex-1 w-full overflow-hidden bg-slate-50">
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover object-top transform group-hover:scale-[1.03] transition-transform duration-1000 ease-out"
+              />
+            </div>
           </div>
         </div>
       </div>
