@@ -17,39 +17,71 @@ To empower local businesses with **affordable, organized, and high-performance d
 
 ---
 
-## ✨ Key Features
+## ✨ Key Features & Functionalities
 
-### 🚀 Agency Experience
-- **Cinematic UI/UX**: A modern, glassmorphic design system built for maximum visual impact and smooth user engagement.
-- **Dynamic Services Architecture**: Fully customized landing pages for Web Development, SEO, and Digital Marketing.
-- **Interactive Portfolio**: High-fidelity project showcases with filtered categories and detailed case studies.
+### 🚀 Premium Frontend Experience
+- **Cinematic UI/UX**: Modern, glassmorphic design system tailored for maximum visual impact and smooth user engagement.
+- **Advanced Animations**: Powered by **Framer Motion** and **GSAP** for fluid, physics-based interactions and scroll-triggered animations.
+- **Smooth Scrolling**: Integrated **Lenis** for a silky-smooth, premium scrolling experience across all devices.
+- **3D & Interactive Elements**: Utilization of **Three.js** and **React Three Fiber** for immersive 3D graphics and interactive visualizer.
+- **Dynamic Components**:
+  - **Sticky Scroll Sections**: Engaging presentation of featured case studies.
+  - **Interactive Mega Menus**: Seamless navigation with animated service previews on hover.
+  - **Video Integrations**: Custom video players with spinning text and smooth interactions.
+  - **Infinite Marquee**: Continuous, hardware-accelerated text scrolling for brand messaging.
 
 ### 🛠️ Advanced Admin Ecosystem
-- **Lead Management System**: Centralized dashboard to track and manage incoming project inquiries with real-time status updates.
-- **Rich Text Content Engine**: Integrated **React Quill** editor allowing admins to write professional blogs with images, videos, and complex formatting.
-- **Agreement Management**: End-to-end system for creating, sending, and digitally tracking client service agreements.
-- **Real-time Notifications**: Native browser notification system that alerts admins instantly when new leads arrive.
+- **Comprehensive Dashboard**: Centralized hub to track leads, manage projects, and oversee agency operations.
+- **Lead & Visitor Tracking**: Real-time tracking of incoming project inquiries and website visitors with status updates.
+- **Rich Text Content Engine**: Integrated **React Quill** editor allowing admins to write and format professional blogs with media support.
+- **Digital Agreements System**: End-to-end management for creating, sending, digitally signing (via **react-signature-canvas**), and tracking client service agreements. Includes PDF generation (**jsPDF** & **html2canvas**).
+- **Real-time Notifications**: Native browser notification system that alerts admins instantly when new leads or activities occur.
 
-### 📧 Marketing & Communication
+### 🤝 Secure Client Portal
+- **Hash-Based Secure Access**: Clients get unique, secure URLs to access their project portal without complex logins.
+- **Automated Requirement Gathering**: Intelligent system that dynamically requests specific assets (e.g., Meta Business access, logos) based on the purchased service.
+- **Project Tracking**: Real-time updates on project milestones and payment statuses.
+
+### 📧 Marketing & Automated Communication
 - **Newsletter Subscription**: High-converting email capture system with automated professional welcome emails.
-- **Professional Automation**: Branded email templates for contact auto-replies, agreement confirmations, and client portal updates.
+- **Professional Automation**: Triggered, branded email templates (via **Nodemailer**) for contact auto-replies, agreement confirmations, and client portal updates.
 - **Social Integration**: Unified social media footers across all client communication channels.
 
-### 📈 SEO & Performance
-- **Dynamic SEO Metadata**: Optimized `generateMetadata` implementation for all pages, including dynamic blog routes.
-- **Schema Markup**: Integrated JSON-LD (Organization & Person) for enhanced search engine authority and CEO branding.
-- **High Core Web Vitals**: Optimized for speed, accessibility, and search engine crawling.
+### 🔒 Security & Authentication
+- **NextAuth Integration**: Robust, secure authentication system for protecting the admin dashboard and sensitive API routes.
+- **Data Encryption**: Secure password hashing using **bcryptjs**.
+
+### 📈 SEO & Performance Optimization
+- **Dynamic SEO Metadata**: Optimized `generateMetadata` implementation for all pages, including dynamic blog and service routes.
+- **Schema Markup**: Integrated JSON-LD (Organization & Person) for enhanced search engine authority.
+- **High Core Web Vitals**: Optimized for speed, accessibility, and search engine crawling with Next.js App Router best practices.
 
 ---
 
-## 💻 Tech Stack
+## 💻 Comprehensive Tech Stack
 
-- **Frontend**: Next.js 15 (App Router), Tailwind CSS, Framer Motion, Lucide React.
-- **Backend**: Next.js API Routes (Serverless), Node.js.
-- **Database**: MongoDB (Mongoose ODM).
-- **Communication**: Nodemailer with SMTP integration.
-- **Editor**: React Quill (Customized for Premium Admin UI).
-- **State Management**: React Hooks & Context API.
+### Frontend Architecture
+- **Framework**: Next.js 16 (App Router)
+- **Styling**: Tailwind CSS v4, Vanilla CSS
+- **Animations**: Framer Motion, GSAP, Motion
+- **Scroll Engine**: @studio-freight/lenis
+- **3D Graphics**: Three.js, React Three Fiber, Drei, Three Globe
+- **Icons**: Lucide React
+- **Typography**: Integrated Custom Fonts
+
+### Backend & Database
+- **API**: Next.js API Routes (Serverless)
+- **Database**: MongoDB with Mongoose ODM
+- **Authentication**: NextAuth, bcryptjs
+- **Email Service**: Nodemailer (SMTP Integration)
+
+### Utilities & Tools
+- **Rich Text Editor**: React Quill New
+- **Form Handling & Validation**: React Hook Form, Zod
+- **PDF Generation**: jsPDF, html2canvas
+- **Digital Signatures**: React Signature Canvas
+- **Analytics**: Vercel Analytics
+- **Date Formatting**: date-fns
 
 ---
 

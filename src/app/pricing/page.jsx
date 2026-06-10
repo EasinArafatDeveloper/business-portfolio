@@ -19,112 +19,108 @@ const pricingData = {
     "Web Dev": [
       {
         plan: "Landing Page",
-        price: "$100",
-        description: "High-converting single page for marketing campaigns.",
-        features: ["Custom Design Layout", "Mobile Responsive", "Lead Capture Form", "Fast Loading < 2s"],
+        price: "$150",
+        description: "High-converting single page for your marketing campaigns.",
+        features: ["Custom UI/UX Layout", "Mobile Responsive", "Lead Capture Form", "Fast Loading < 1.5s"],
         isHighlighted: false,
       },
       {
-        plan: "WordPress / Shopify",
-        price: "$500 - $1,200",
-        description: "Best for Personal blogs, Corporate sites, or E-commerce stores.",
-        features: ["Everything in Landing Page", "Full Store Setup & Theme Design", "Payment Gateway Integration", "Advanced SEO Optimization", "Admin Dashboard & Control", "1 Month Free Maintenance", "Google Analytics Setup", "Premium Security Plugins"],
+        plan: "Custom Website",
+        price: "$600 - $1,500",
+        description: "Bespoke corporate, portfolio, or custom e-commerce web applications.",
+        features: ["Bespoke Architecture", "Custom Admin Dashboard", "Payment Gateway Integration", "Advanced SEO Optimization", "Full Security Audit", "3 Months Free Support"],
         isHighlighted: true,
       },
       {
-        plan: "Custom Full-Stack",
-        price: "$1,000+",
-        description: "MERN or Next.js advanced web applications.",
-        features: ["Bespoke Architecture", "Custom API Integrations", "Advanced Security", "Scalable Performance", "Dedicated Cloud Hosting"],
+        plan: "Enterprise System",
+        price: "$2,000+",
+        description: "Full-scale custom ERP, CRM, or SaaS web portals.",
+        features: ["Bespoke System Workflow", "Advanced Role-Based Security", "Custom API Integrations", "Database Performance Tuning", "Dedicated Cloud Deployment"],
         isHighlighted: false,
       },
     ],
-    "Marketing": [
+    "Mobile App": [
       {
-        plan: "Meta / Google Ads",
-        price: "$200 / Month",
-        description: "Data-driven marketing to maximize ROI.",
-        features: ["Target Audience Research", "Creative Ad Copies & Banners", "Advanced Retargeting Campaigns", "Pixel & Server-Side Tracking", "Google Search & Video Ads", "A/B Testing Creatives", "Weekly Growth Reports", "Dedicated Account Manager"],
+        plan: "MVP App",
+        price: "$800+",
+        description: "Standard mobile app built with hybrid technologies.",
+        features: ["React Native / Flutter", "User Authentication", "Basic Push Notifications", "Database Integration", "App Store Submission"],
         isHighlighted: true,
-      }
-    ],
-    "Chatbot": [
+      },
       {
-        plan: "WhatsApp Automation",
-        price: "$200 - $400",
-        description: "24/7 smart automation for customer support & sales.",
-        features: ["Interactive FAQ Bot Menu", "Official Business API Access", "Real-Time Lead Collection", "Automated Order Tracking", "Live CRM Database Syncing", "Abandoned Cart Recovery", "Secure Payment Links", "Mass Broadcasting Tools"],
-        isHighlighted: true,
-      }
+        plan: "Custom Mobile App",
+        price: "$2,000+",
+        description: "Enterprise mobile app with advanced native features.",
+        features: ["Cross-Platform Android & iOS", "Native Device API Access", "Offline Sync Support", "Advanced Security Systems", "Full Publishing & App Store Support"],
+        isHighlighted: false,
+      },
     ]
   },
   Bangladesh: {
     "Web Dev": [
       {
         plan: "Landing Page",
-        price: "৳ 5,000 - ৳ 7k",
-        description: "High-converting single page for marketing campaigns.",
-        features: ["Custom Design Layout", "Mobile Responsive", "Lead Capture Form", "Fast Loading < 2s"],
+        price: "৳ 6,000 - ৳ 10k",
+        description: "High-converting single page for your marketing campaigns.",
+        features: ["Custom UI/UX Layout", "Mobile Responsive", "Lead Capture Form", "Fast Loading < 1.5s"],
         isHighlighted: false,
       },
       {
-        plan: "WordPress / Shopify",
-        price: "৳ 15k - ৳ 20k",
-        description: "Best for Personal blogs, Corporate sites, or E-commerce stores.",
-        features: ["Everything in Landing Page", "Full Store Setup & Theme Design", "Payment Gateway (bKash/SSL)", "Advanced SEO Optimization", "Admin Dashboard & Control", "1 Month Free Maintenance", "Google Analytics Setup", "Premium Security Plugins"],
+        plan: "Custom Website",
+        price: "৳ 20,000 - ৳ 45k",
+        description: "Bespoke corporate, portfolio, or custom e-commerce web applications.",
+        features: ["Bespoke Architecture", "Custom Admin Dashboard", "Payment Gateway Integration", "Advanced SEO Optimization", "Full Security Audit", "3 Months Free Support"],
         isHighlighted: true,
       },
       {
-        plan: "Custom Full-Stack",
-        price: "৳ 30,000+",
-        description: "MERN or Next.js advanced web applications.",
-        features: ["Bespoke Architecture", "Custom API Integrations", "Advanced Security", "Scalable Performance", "Dedicated Cloud Hosting"],
+        plan: "Enterprise System",
+        price: "৳ 60,000+",
+        description: "Full-scale custom ERP, CRM, or SaaS web portals.",
+        features: ["Bespoke System Workflow", "Advanced Role-Based Security", "Custom API Integrations", "Database Performance Tuning", "Dedicated Cloud Deployment"],
         isHighlighted: false,
       },
     ],
-    "Marketing": [
+    "Mobile App": [
       {
-        plan: "Meta / Google Ads",
-        price: "৳ 2,000 / week",
-        description: "Data-driven marketing to maximize ROI.",
-        features: ["Target Audience Research", "Creative Ad Copies & Banners", "Advanced Retargeting Campaigns", "Pixel & Server-Side Tracking", "Google Search & Video Ads", "A/B Testing Creatives", "Weekly Growth Reports", "Dedicated Account Manager"],
+        plan: "MVP App",
+        price: "৳ 25,000+",
+        description: "Standard mobile app built with hybrid technologies.",
+        features: ["React Native / Flutter", "User Authentication", "Basic Push Notifications", "Database Integration", "App Store Submission"],
         isHighlighted: true,
-      }
-    ],
-    "Chatbot": [
+      },
       {
-        plan: "WhatsApp Automation",
-        price: "৳ 4,000 - ৳ 8,000",
-        description: "24/7 smart automation for customer support & sales.",
-        features: ["Interactive FAQ Bot Menu", "Official Business API Access", "Real-Time Lead Collection", "Automated Order Tracking", "Live CRM Database Syncing", "Abandoned Cart Recovery", "Secure Payment Links", "Mass Broadcasting Tools"],
-        isHighlighted: true,
-      }
+        plan: "Custom Mobile App",
+        price: "৳ 60,000+",
+        description: "Enterprise mobile app with advanced native features.",
+        features: ["Cross-Platform Android & iOS", "Native Device API Access", "Offline Sync Support", "Advanced Security Systems", "Full Publishing & App Store Support"],
+        isHighlighted: false,
+      },
     ]
   }
 };
 
 const agencyBundles = [
   {
-    title: "Startup Kickstart",
-    description: "Perfect for quick launches.",
-    features: ["Landing Page Development", "Meta Ads Setup", "Basic FAQ Chatbot"],
+    title: "Web Kickstart",
+    description: "Launch your custom web presence quickly.",
+    features: ["Landing Page Development", "Basic Admin Panel", "Google Analytics Setup"],
     icon: "🚀"
   },
   {
-    title: "E-commerce Pro",
-    description: "Ready-to-sell machine.",
-    features: ["Shopify Store Setup", "Google Ads Management", "WhatsApp Order Bot"],
+    title: "E-commerce System",
+    description: "Sell products online with a custom dashboard.",
+    features: ["Custom E-commerce Website", "Payment Gateway Integration", "Inventory Control Board"],
     icon: "🛍️"
   },
   {
-    title: "Enterprise Digital",
-    description: "The ultimate 360 solution.",
-    features: ["Full-Stack Web App", "360 Degree Marketing", "Advanced API Bot"],
+    title: "Web & Mobile Combo",
+    description: "Ultimate digital presence on all screens.",
+    features: ["Full-Stack Web App", "Android & iOS Mobile App", "Dedicated API Sync"],
     icon: "👑"
   }
 ];
 
-const categoryTabs = ["Web Dev", "Marketing", "Chatbot"];
+const categoryTabs = ["Web Dev", "Mobile App"];
 
 // FAQ ডেটা
 const faqData = [
@@ -427,11 +423,7 @@ export default function PricingPage() {
                 <div className="text-neutral-300 space-y-3">
                   <p className="flex items-start gap-2">
                     <span className="text-blue-500 mt-1">•</span> 
-                    <span><strong>Ad Spend Not Included:</strong> Our marketing management fee covers strategy, execution, and optimization. You provide the ad budget directly to Google/Meta.</span>
-                  </p>
-                  <p className="flex items-start gap-2">
-                    <span className="text-blue-500 mt-1">•</span> 
-                    <span><strong>3 Months Free Maintenance:</strong> Every Website Development project includes complete support and updates for 3 months post-launch, guaranteeing absolute peace of mind.</span>
+                    <span><strong>3 Months Free Maintenance:</strong> Every Web & Mobile App project includes complete support and updates for 3 months post-launch, guaranteeing absolute peace of mind.</span>
                   </p>
                 </div>
               </div>

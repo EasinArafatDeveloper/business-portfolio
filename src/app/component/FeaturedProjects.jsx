@@ -10,7 +10,7 @@ const featuredProjects = [
     tag: "Service 01",
     description:
       "We design laser-focused landing pages built to convert visitors into customers. Optimized for speed, SEO, and compelling calls-to-action that drive real business results.",
-    serviceLink: "/services/website-development",
+    serviceLink: "/services/landing-page",
     images: [
       "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -27,7 +27,7 @@ const featuredProjects = [
     tag: "Service 02",
     description:
       "Scalable, feature-rich online stores built to sell. From seamless checkout flows and product management to integrated payment gateways — we build stores that perform.",
-    serviceLink: "/services/website-development",
+    serviceLink: "/services/e-commerce",
     images: [
       "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/5632399/pexels-photo-5632399.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -44,7 +44,7 @@ const featuredProjects = [
     tag: "Service 03",
     description:
       "Bespoke web applications engineered to your exact specifications. From complex dashboards to SaaS platforms — modern architecture, clean code, exceptional performance.",
-    serviceLink: "/services/website-development",
+    serviceLink: "/services/custom-system-software",
     images: [
       "https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&cs=tinysrgb&w=600",
       "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -56,20 +56,20 @@ const featuredProjects = [
     ],
   },
   {
-    title: "Digital Marketing",
-    category: "Growth & Visibility",
+    title: "Mobile App Development",
+    category: "Android & iOS Applications",
     tag: "Service 04",
     description:
-      "Data-driven digital marketing strategies that amplify your brand presence. SEO, social media campaigns, and targeted advertising to grow your audience and revenue.",
-    serviceLink: "/services/digital-marketing",
+      "High-performance native and cross-platform mobile apps. From wireframing to publishing on Play Store & App Store, we build applications that engage users and scale.",
+    serviceLink: "/services/mobile-app-development",
     images: [
-      "https://images.pexels.com/photos/905163/pexels-photo-905163.jpeg?auto=compress&cs=tinysrgb&w=600",
-      "https://images.pexels.com/photos/67112/pexels-photo-67112.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "https://images.pexels.com/photos/1092670/pexels-photo-1092670.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "https://images.pexels.com/photos/826349/pexels-photo-826349.jpeg?auto=compress&cs=tinysrgb&w=600",
     ],
     accent: "#8b5cf6",
     stats: [
-      { label: "Avg. Traffic Growth", value: "+120%" },
-      { label: "Campaigns Run", value: "80+" },
+      { label: "Android & iOS Apps", value: "15+" },
+      { label: "Active Installs", value: "100k+" },
     ],
   },
 ];
@@ -240,7 +240,7 @@ export default function FeaturedProjects() {
             </svg>
           </span>{" "}
           <br className="hidden md:block" />
-          <span className="text-slate-500">&amp; Digital Marketing</span>{" "}
+          <span className="text-slate-500">&amp; Mobile Apps</span>{" "}
           <span className="text-blue-600 italic font-serif relative inline-block">
             Projects
             <svg

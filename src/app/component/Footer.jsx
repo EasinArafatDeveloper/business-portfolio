@@ -56,18 +56,28 @@ export default function Footer() {
               <h3 className="font-black text-[10px] uppercase tracking-[2px] text-slate-400 mb-6">Services</h3>
               <ul className="space-y-4">
                 <li>
-                  <Link href="/services/website-development" className="text-sm font-bold text-slate-600 hover:text-purple-600 transition-colors">
-                    Web Development
+                  <Link href="/services/landing-page" className="text-sm font-bold text-slate-600 hover:text-purple-600 transition-colors">
+                    Landing Page
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services/digital-marketing" className="text-sm font-bold text-slate-600 hover:text-purple-600 transition-colors">
-                    Digital Marketing
+                  <Link href="/services/e-commerce" className="text-sm font-bold text-slate-600 hover:text-purple-600 transition-colors">
+                    E-commerce
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services/whatsapp-chatbots" className="text-sm font-bold text-slate-600 hover:text-purple-600 transition-colors">
-                    WhatsApp Solutions
+                  <Link href="/services/custom-system-software" className="text-sm font-bold text-slate-600 hover:text-purple-600 transition-colors">
+                    Custom System
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/company-website" className="text-sm font-bold text-slate-600 hover:text-purple-600 transition-colors">
+                    Company Website
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services/mobile-app-development" className="text-sm font-bold text-slate-600 hover:text-purple-600 transition-colors">
+                    Mobile App Dev
                   </Link>
                 </li>
               </ul>
@@ -93,7 +103,7 @@ export default function Footer() {
                   <Linkedin size={20} />
                 </a>
                 <a 
-                  href="https://wa.me/your-number-here" 
+                  href="https://wa.me/8801645650504" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="text-slate-400 hover:text-green-600 transition-colors"

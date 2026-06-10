@@ -18,22 +18,34 @@ function ServicesMenu() {
   const [activeService, setActiveService] = useState(0);
   const services = [
     {
-      title: "Website Development",
-      description: "Responsive, fast & SEO-friendly solutions, from Landing Pages to Full-Stack Web Apps.",
-      image: "https://cdn.dribbble.com/userupload/16467705/file/original-fc58292a73b9ea8abf6f37f68d793ea6.mp4",
-      path: "/services/website-development", 
+      title: "Landing Page",
+      description: "High-converting single pages built for leads and sales.",
+      image: "/images/landing-page.png",
+      path: "/services/landing-page", 
     },
     {
-      title: "Digital Marketing",
-      description: "Data-driven Meta Ads and Google Ads strategies for maximum brand growth and sales.",
-      image: "https://cdn.dribbble.com/userupload/10640472/file/original-c81c56245856e105c75424cf9a958366.mp4",
-      path: "/services/digital-marketing", 
+      title: "E-commerce",
+      description: "Scalable online stores with automated order & stock management.",
+      image: "/images/e-commerce.png",
+      path: "/services/e-commerce", 
     },
     {
-      title: "WhatsApp Chatbots",
-      description: "Deploy 24/7 smart automation, API integrations, and Advanced AI Chatbots.",
-      image: "https://cdn.dribbble.com/userupload/45750789/file/9b848a9a9bd01412135ca833731b40ad.mp4",
-      path: "/services/whatsapp-chatbots", 
+      title: "Custom System Software",
+      description: "Bespoke internal management systems, ERPs, CRM portals.",
+      image: "/images/custom-system-software.png",
+      path: "/services/custom-system-software", 
+    },
+    {
+      title: "Company Website",
+      description: "Professional corporate portfolios and branding web platforms.",
+      image: "/images/company-website.png",
+      path: "/services/company-website", 
+    },
+    {
+      title: "Mobile App Development",
+      description: "High-performance hybrid and native Android & iOS mobile apps.",
+      image: "/images/mobile-app.png",
+      path: "/services/mobile-app-development", 
     },
   ];
 

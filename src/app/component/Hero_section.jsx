@@ -28,7 +28,7 @@ export default function Hero_section() {
       <div className="hidden md:block absolute inset-0 pointer-events-none z-10 w-full max-w-[1400px] mx-auto">
         {/* Left Side */}
         <motion.div animate={{ y: [0, -15, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} className="absolute top-[18%] -left-[2%] lg:-left-[1%] w-16 h-16 bg-white/60 backdrop-blur-xl border border-white/80 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] flex items-center justify-center p-3 pointer-events-auto hover:rotate-6 hover:scale-110 transition-all cursor-pointer">
-          <Image width={800} height={800} src="https://i.postimg.cc/g0CQLXjC/wordpress.png" alt="WordPress" className="w-full h-full object-contain" draggable={false} />
+          <Image width={800} height={800} src="https://skillicons.dev/icons?i=nextjs" alt="Next.js" className="w-full h-full object-contain" draggable={false} unoptimized />
         </motion.div>
 
         <motion.div animate={{ y: [0, -20, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }} className="absolute top-[40%] -left-[4%] lg:-left-[5%] w-14 h-14 bg-white/60 backdrop-blur-xl border border-white/80 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] flex items-center justify-center p-2.5 pointer-events-auto hover:rotate-6 hover:scale-110 transition-all cursor-pointer">
@@ -41,7 +41,7 @@ export default function Hero_section() {
 
         {/* Right Side */}
         <motion.div animate={{ y: [0, -18, 0] }} transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }} className="absolute top-[15%] -right-[1%] lg:-right-[2%] w-16 h-16 bg-white/60 backdrop-blur-xl border border-white/80 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] flex items-center justify-center p-3 pointer-events-auto hover:-rotate-6 hover:scale-110 transition-all cursor-pointer">
-          <Image width={800} height={800} src="https://i.postimg.cc/ZYF20qSf/shopify.png" alt="Shopify" className="w-full h-full object-contain" draggable={false} />
+          <Image width={800} height={800} src="https://skillicons.dev/icons?i=flutter" alt="Flutter" className="w-full h-full object-contain" draggable={false} unoptimized />
         </motion.div>
 
         <motion.div animate={{ y: [0, -15, 0] }} transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 1.5 }} className="absolute top-[42%] -right-[4%] lg:-right-[5%] w-14 h-14 bg-white/60 backdrop-blur-xl border border-white/80 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] flex items-center justify-center p-2.5 pointer-events-auto hover:rotate-6 hover:scale-110 transition-all cursor-pointer">
@@ -66,7 +66,7 @@ export default function Hero_section() {
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm mb-8"
         >
           <div className="w-5 h-5 rounded-full bg-[#1e293b] flex items-center justify-center text-white"><Rocket size={10} /></div>
-          <span className="text-xs sm:text-sm font-semibold text-slate-600 uppercase tracking-wide">Top-Rated Digital Agency</span>
+          <span className="text-xs sm:text-sm font-semibold text-slate-600 uppercase tracking-wide">Your Trusted Digital Partner</span>
         </motion.div>
 
         {/* Headline */}
@@ -76,27 +76,17 @@ export default function Hero_section() {
           transition={{ delay: 0.1 }}
           className="text-center max-w-4xl"
         >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold tracking-tight text-[#0f172a] leading-[1.1] mb-6">
-            <span className="text-[#1d4ed8] relative inline-block">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-bold tracking-tight text-[#0f172a] leading-[1.2] mb-6">
+            Grow Your Business Online <br className="hidden md:block" />
+            With <span className="text-[#1d4ed8] relative inline-block">
               ScaleUp Web
               <svg className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-2 md:h-3 text-blue-600/80" viewBox="0 0 200 9" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M2.00035 7.15346C55.0746 -1.04258 135.807 -1.82103 198.051 5.92215" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
               </svg>
-            </span> Expert Web <span className="text-[#1d4ed8] relative inline-block">
-              Design
-              <svg className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-2 md:h-3 text-blue-600/80" viewBox="0 0 200 9" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2.00035 7.15346C55.0746 -1.04258 135.807 -1.82103 198.051 5.92215" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-              </svg>
-            </span> & Development <br className="hidden md:block" />
-            <span className="text-[#1d4ed8] relative inline-block">
-              Digital Marketing Solutions
-              <svg className="absolute -bottom-2 md:-bottom-3 left-0 w-full h-3 md:h-4 text-blue-600/80" viewBox="0 0 200 9" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2.00035 7.15346C55.0746 -1.04258 135.807 -1.82103 198.051 5.92215" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-              </svg>
             </span>
           </h1>
-          <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed">
-            We build high-performance websites and execute data-driven digital marketing campaigns to help your service business generate more leads and grow revenue seamlessly.
+          <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto font-medium leading-relaxed">
+            We build beautiful websites and run Facebook & Google Ads to help you get more customers and grow your sales.
           </p>
         </motion.div>
 
@@ -156,13 +146,11 @@ export default function Hero_section() {
 
           {/* Center Big Node */}
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[480px] bg-white/80 backdrop-blur-md border border-white/80 rounded-[2rem] shadow-[0_15px_40px_rgb(0,0,0,0.06)] p-8 z-20 flex flex-wrap justify-center gap-3 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white via-white to-slate-50/50">
-            <span className="text-xs xl:text-sm bg-white text-slate-700 rounded-full px-4 py-2 font-medium border border-slate-200 shadow-sm hover:-translate-y-0.5 transition-transform cursor-default">Web Development</span>
-            <span className="text-xs xl:text-sm bg-white text-slate-700 rounded-full px-4 py-2 font-medium border border-slate-200 shadow-sm hover:-translate-y-0.5 transition-transform cursor-default">E-Commerce</span>
-            <span className="text-xs xl:text-sm bg-white text-slate-700 rounded-full px-4 py-2 font-medium border border-slate-200 shadow-sm hover:-translate-y-0.5 transition-transform cursor-default">Shopify Setup</span>
-            <span className="text-xs xl:text-sm bg-white text-slate-700 rounded-full px-4 py-2 font-medium border border-slate-200 shadow-sm hover:-translate-y-0.5 transition-transform cursor-default">Landing Pages</span>
-            <span className="text-xs xl:text-sm bg-white text-slate-700 rounded-full px-4 py-2 font-medium border border-slate-200 shadow-sm hover:-translate-y-0.5 transition-transform cursor-default">WordPress</span>
-            <span className="text-xs xl:text-sm bg-white text-slate-700 rounded-full px-4 py-2 font-medium border border-slate-200 shadow-sm hover:-translate-y-0.5 transition-transform cursor-default">Meta & Google Ads</span>
-            <span className="text-xs xl:text-sm bg-white text-slate-700 rounded-full px-4 py-2 font-medium border border-slate-200 shadow-sm hover:-translate-y-0.5 transition-transform cursor-default">SEO Optimization</span>
+            <span className="text-xs xl:text-sm bg-white text-slate-700 rounded-full px-4 py-2 font-medium border border-slate-200 shadow-sm hover:-translate-y-0.5 transition-transform cursor-default">Website Development</span>
+            <span className="text-xs xl:text-sm bg-white text-slate-700 rounded-full px-4 py-2 font-medium border border-slate-200 shadow-sm hover:-translate-y-0.5 transition-transform cursor-default">Custom System Development</span>
+            <span className="text-xs xl:text-sm bg-white text-slate-700 rounded-full px-4 py-2 font-medium border border-slate-200 shadow-sm hover:-translate-y-0.5 transition-transform cursor-default">E-commerce Development</span>
+            <span className="text-xs xl:text-sm bg-white text-slate-700 rounded-full px-4 py-2 font-medium border border-slate-200 shadow-sm hover:-translate-y-0.5 transition-transform cursor-default">Mobile App Development</span>
+            <span className="text-xs xl:text-sm bg-white text-slate-700 rounded-full px-4 py-2 font-medium border border-slate-200 shadow-sm hover:-translate-y-0.5 transition-transform cursor-default">Android & iOS Apps</span>
           </div>
 
 
@@ -181,11 +169,10 @@ export default function Hero_section() {
 
         {/* Fallback for Mobile (Instead of flowchart) */}
         <div className="sm:hidden flex flex-wrap justify-center gap-3 mt-10 mb-10 w-full px-4">
-          <span className="text-xs bg-white text-slate-700 shadow-sm rounded-full px-4 py-2 font-medium border border-slate-200">Web Development</span>
-          <span className="text-xs bg-white text-slate-700 shadow-sm rounded-full px-4 py-2 font-medium border border-slate-200">E-Commerce</span>
-          <span className="text-xs bg-white text-slate-700 shadow-sm rounded-full px-4 py-2 font-medium border border-slate-200">Shopify Setup</span>
-          <span className="text-xs bg-white text-slate-700 shadow-sm rounded-full px-4 py-2 font-medium border border-slate-200">Meta & Google Ads</span>
-          <span className="text-xs bg-white text-slate-700 shadow-sm rounded-full px-4 py-2 font-medium border border-slate-200">SEO Optimization</span>
+          <span className="text-xs bg-white text-slate-700 shadow-sm rounded-full px-4 py-2 font-medium border border-slate-200">Website Development</span>
+          <span className="text-xs bg-white text-slate-700 shadow-sm rounded-full px-4 py-2 font-medium border border-slate-200">Custom System Development</span>
+          <span className="text-xs bg-white text-slate-700 shadow-sm rounded-full px-4 py-2 font-medium border border-slate-200">E-commerce Development</span>
+          <span className="text-xs bg-white text-slate-700 shadow-sm rounded-full px-4 py-2 font-medium border border-slate-200">Mobile App Development</span>
         </div>
 
         {/* Bottom Buttons */}
@@ -201,16 +188,21 @@ export default function Hero_section() {
             href="/contact"
             className="group relative overflow-hidden flex items-center justify-center sm:justify-between gap-3 px-8 py-3.5 w-full sm:w-auto rounded-full bg-gradient-to-r from-[#1d4ed8] to-blue-500 text-white font-semibold transition-all shadow-[0_8px_30px_rgba(29,78,216,0.4)] hover:shadow-[0_8px_40px_rgba(29,78,216,0.6)] border border-blue-400/20"
           >
-            <span className="relative z-10">Get Started</span>
+            <span className="relative z-10">Get Free Consultation</span>
             <div className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white group-hover:translate-x-1 transition-all z-10">
               <ChevronRight size={16} className="text-white group-hover:text-blue-600 transition-colors" />
             </div>
             {/* Shimmer effect */}
             <div className="absolute top-0 -left-[100%] w-1/2 h-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12 group-hover:left-[200%] transition-all duration-700 ease-in-out z-0"></div>
           </motion.a>
-          <button className="px-8 py-3.5 w-full sm:w-auto rounded-full bg-transparent border-[1.5px] border-slate-300 text-slate-700 font-medium hover:bg-slate-50 transition-colors">
-            Schedule a Demo
-          </button>
+          <a
+            href="https://wa.me/8801645650504"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-3.5 w-full sm:w-auto rounded-full bg-transparent border-[1.5px] border-slate-300 text-slate-700 font-medium hover:bg-slate-50 transition-colors text-center inline-block"
+          >
+            WhatsApp Message
+          </a>
         </motion.div>
 
       </div>

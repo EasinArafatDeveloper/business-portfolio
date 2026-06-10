@@ -12,7 +12,7 @@ const testimonials = [
     name: "Kishor Chandra Bala",
     title: "co-founder of Salinnyo",
     image: "https://i.postimg.cc/fbpcrNJn/577497509-1160500629620545-8555406647823235800-n.jpg",
-    logo: "https://placehold.co/150x50/e0e7ff/333?text=salinnyo",
+    logo: "salinnyo",
   },
   {
     quote:
@@ -28,7 +28,7 @@ const testimonials = [
     name: "Ahads Hikder",
     title: "",
     image: "https://i.postimg.cc/RZv3dLtR/aha-da-sa-kada-ra.png",
-    logo: "https://placehold.co/150x50/dcfce7/333?text=NCP",
+    logo: "NCP",
   },
 ];
 
@@ -121,13 +121,19 @@ export default function TestimonialSection() {
                     <p className="font-bold text-lg">{testimonial.name}</p>
                     <p className="text-gray-500">{testimonial.title}</p>
                   </div>
-                  <div className="relative h-8 w-32">
-                    <Image
-                      src={testimonial.logo}
-                      alt="Company Logo"
-                      fill
-                      className="object-contain object-left opacity-50 grayscale hover:grayscale-0 transition-all duration-300"
-                    />
+                  <div className="relative h-8 w-32 flex items-center">
+                    {testimonial.logo.startsWith("http") || testimonial.logo.startsWith("/") ? (
+                      <Image
+                        src={testimonial.logo}
+                        alt="Company Logo"
+                        fill
+                        className="object-contain object-left opacity-50 grayscale hover:grayscale-0 transition-all duration-300"
+                      />
+                    ) : (
+                      <span className="text-lg font-black tracking-wider uppercase text-neutral-400 opacity-60">
+                        {testimonial.logo}
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>
