@@ -27,7 +27,7 @@ export default function AboutUsPage() {
         name: "Easin Arafat",
         role: "Founder & CEO, Full-Stack Developer",
         image: "https://i.postimg.cc/zGkWC4JB/Easin-A_rafat-3.png",
-        bio: "At just 20 years old, Easin Arafat is a passionate full-stack developer and tech entrepreneur dedicated to digitizing Bangladesh's local economy. As the Founder and CEO of ScaleUp Web, he builds custom, lightning-fast Next.js apps and automated digital systems. He is on a mission to help offline shops, brands, and startups transition online with minimal costs and zero technical stress.",
+        bio: "Easin Arafat is a visionary tech leader dedicated to digitizing Bangladesh's local economy. As the Founder and CEO of ScaleUp Web, he builds high-performance systems that empower offline businesses to thrive online with minimal cost and maximum efficiency. His goal is to bring 100% digital visibility to every corner of the country's local market.",
         socials: {
             linkedin: "https://www.linkedin.com/in/easinarafatdev/",
             fiverr: "https://www.fiverr.com/easin_dev",
