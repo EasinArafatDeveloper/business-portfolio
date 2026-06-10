@@ -41,6 +41,22 @@ const StudentPortfolioSchema = new mongoose.Schema({
     type: String,
     default: "",
   },
+  githubLink: {
+    type: String,
+    default: "",
+  },
+  linkedinLink: {
+    type: String,
+    default: "",
+  },
+  resumeLink: {
+    type: String,
+    default: "",
+  },
+  avatarUrl: {
+    type: String,
+    default: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=300",
+  },
   university: {
     type: String,
     required: true,

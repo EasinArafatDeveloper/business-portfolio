@@ -47,6 +47,10 @@ export async function PUT(req, { params }) {
     if (typeof data.designation === "string") portfolio.designation = data.designation.trim();
     if (typeof data.bio === "string") portfolio.bio = data.bio.trim();
     if (typeof data.accentColor === "string") portfolio.accentColor = data.accentColor.trim();
+    if (typeof data.githubLink === "string") portfolio.githubLink = data.githubLink.trim();
+    if (typeof data.linkedinLink === "string") portfolio.linkedinLink = data.linkedinLink.trim();
+    if (typeof data.resumeLink === "string") portfolio.resumeLink = data.resumeLink.trim();
+    if (typeof data.avatarUrl === "string") portfolio.avatarUrl = data.avatarUrl.trim();
     
     if (Array.isArray(data.skills)) {
       portfolio.skills = data.skills.map(skill => String(skill).trim()).filter(Boolean);

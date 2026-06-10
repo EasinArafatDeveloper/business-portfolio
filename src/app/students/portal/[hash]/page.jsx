@@ -15,8 +15,15 @@ import {
   PlusCircle, 
   Check, 
   ExternalLink,
-  Loader2
+  Loader2,
+  AlertTriangle,
+  CheckCircle2,
+  Github,
+  Linkedin,
+  FileText,
+  Image as ImageIcon
 } from "lucide-react";
+
 
 export default function StudentDashboardPage() {
   const { hash } = useParams();
@@ -311,6 +318,72 @@ export default function StudentDashboardPage() {
               />
             </div>
           </div>
+
+          {/* Social & Professional Links Block */}
+          <div className="bg-[#0f1015] border border-white/5 rounded-3xl p-6 lg:p-8 space-y-6">
+            <h3 className="text-xl font-black text-white flex items-center gap-2">
+              <Globe size={18} className="text-blue-500" /> Links & Socials
+            </h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-[10px] font-black uppercase tracking-wider text-neutral-500 mb-2 flex items-center gap-1.5">
+                  <Github size={13} className="text-neutral-400" /> GitHub Profile Link
+                </label>
+                <input
+                  type="url"
+                  name="githubLink"
+                  value={portfolio.githubLink || ""}
+                  onChange={handleProfileChange}
+                  placeholder="https://github.com/yourusername"
+                  className="w-full px-5 py-4 rounded-xl border border-white/10 bg-black focus:outline-none focus:border-blue-500 transition-all font-semibold text-sm text-white"
+                />
+              </div>
+
+              <div>
+                <label className="block text-[10px] font-black uppercase tracking-wider text-neutral-500 mb-2 flex items-center gap-1.5">
+                  <Linkedin size={13} className="text-blue-400" /> LinkedIn Profile Link
+                </label>
+                <input
+                  type="url"
+                  name="linkedinLink"
+                  value={portfolio.linkedinLink || ""}
+                  onChange={handleProfileChange}
+                  placeholder="https://linkedin.com/in/yourusername"
+                  className="w-full px-5 py-4 rounded-xl border border-white/10 bg-black focus:outline-none focus:border-blue-500 transition-all font-semibold text-sm text-white"
+                />
+              </div>
+
+              <div>
+                <label className="block text-[10px] font-black uppercase tracking-wider text-neutral-500 mb-2 flex items-center gap-1.5">
+                  <FileText size={13} className="text-red-400" /> Resume Link (Drive/Dropbox)
+                </label>
+                <input
+                  type="url"
+                  name="resumeLink"
+                  value={portfolio.resumeLink || ""}
+                  onChange={handleProfileChange}
+                  placeholder="https://drive.google.com/... or dropbox"
+                  className="w-full px-5 py-4 rounded-xl border border-white/10 bg-black focus:outline-none focus:border-blue-500 transition-all font-semibold text-sm text-white"
+                />
+              </div>
+
+              <div>
+                <label className="block text-[10px] font-black uppercase tracking-wider text-neutral-500 mb-2 flex items-center gap-1.5">
+                  <ImageIcon size={13} className="text-emerald-400" /> Avatar Image URL
+                </label>
+                <input
+                  type="url"
+                  name="avatarUrl"
+                  value={portfolio.avatarUrl || ""}
+                  onChange={handleProfileChange}
+                  placeholder="https://images.unsplash.com/..."
+                  className="w-full px-5 py-4 rounded-xl border border-white/10 bg-black focus:outline-none focus:border-blue-500 transition-all font-semibold text-sm text-white"
+                />
+              </div>
+            </div>
+          </div>
+
 
           {/* Skills Details Block */}
           <div className="bg-[#0f1015] border border-white/5 rounded-3xl p-6 lg:p-8 space-y-6">
