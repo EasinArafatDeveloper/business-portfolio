@@ -1,21 +1,22 @@
 export const metadata = {
-  title: "Our Work \u2014 Portfolio of Digital Projects & Case Studies",
+  title: "Our Work — Portfolio of Custom Web & Mobile Projects",
   description:
-    "Explore ScaleUp Web\u2019s portfolio of successful projects \u2014 websites, marketing campaigns, and automation solutions that delivered real business results for our clients.",
+    "Explore ScaleUp Web’s portfolio of successful projects — custom websites, e-commerce storefronts, bespoke management systems, and mobile applications that deliver real growth.",
   keywords: [
     "portfolio",
     "web development projects",
-    "digital marketing case studies",
-    "client work",
+    "custom system software portfolio",
+    "e-commerce storefronts portfolio",
+    "mobile app portfolio",
     "ScaleUp Web projects",
   ],
   alternates: {
     canonical: "https://www.scaleupweb.xyz/work",
   },
   openGraph: {
-    title: "Our Work \u2014 ScaleUp Web Portfolio",
+    title: "Our Work — ScaleUp Web Portfolio",
     description:
-      "Real projects, real results. Explore our portfolio of websites, ads, and chatbot solutions.",
+      "Real projects, real results. Explore our portfolio of custom websites, systems, and mobile applications.",
     url: "https://www.scaleupweb.xyz/work",
     siteName: "ScaleUp Web",
     type: "website",

@@ -1,21 +1,22 @@
 export const metadata = {
-  title: "Contact Us \u2014 Let\u2019s Build Something Amazing Together",
+  title: "Contact Us — Let’s Build Something Amazing Together",
   description:
-    "Ready to scale your business? Contact ScaleUp Web today for a free consultation on website development, digital marketing, or WhatsApp chatbot automation.",
+    "Ready to scale your business? Contact ScaleUp Web today for a free consultation on website development, custom system software, e-commerce, or mobile app development.",
   keywords: [
     "contact ScaleUp Web",
-    "hire digital agency",
+    "hire web developer",
+    "custom system software quote",
     "free consultation",
-    "web development quote",
-    "digital marketing contact",
+    "web development agency",
+    "mobile app development contact",
   ],
   alternates: {
     canonical: "https://www.scaleupweb.xyz/contact",
   },
   openGraph: {
-    title: "Contact ScaleUp Web \u2014 Get a Free Consultation",
+    title: "Contact ScaleUp Web — Get a Free Consultation",
     description:
-      "Let\u2019s talk about your project. Reach out to ScaleUp Web for web, marketing & automation solutions.",
+      "Let’s talk about your project. Reach out to ScaleUp Web for web development, custom system software, and mobile app solutions.",
     url: "https://www.scaleupweb.xyz/contact",
     siteName: "ScaleUp Web",
     type: "website",

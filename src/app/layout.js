@@ -12,25 +12,24 @@ import { AlertProvider } from "./component/AlertProvider";
 export const metadata = {
   metadataBase: new URL("https://www.scaleupweb.xyz"),
   title: {
-    default: "ScaleUp Web - Website Development, Digital Marketing & Automation",
+    default: "ScaleUp Web - Custom Web Development, Custom Systems & Mobile Apps",
     template: "%s | ScaleUp Web",
   },
   description:
-    "ScaleUp Web is a premium digital agency specializing in high-converting website development, ROI-focused digital marketing, SEO, and smart WhatsApp chatbot automation.",
+    "ScaleUp Web is a premium digital agency specializing in custom web development, custom system software (ERP/CRM), e-commerce, mobile app development, and technical SEO.",
   keywords: [
     "ScaleUp Web",
     "digital agency",
     "website development",
     "web development",
-    "digital marketing",
-    "WhatsApp chatbot",
-    "SEO",
-    "website design",
+    "custom system software",
+    "ERP CRM systems",
+    "mobile app development",
+    "SEO optimization",
+    "e-commerce development",
+    "landing page design",
     "business portfolio",
-    "online marketing",
-    "ecommerce development",
     "UI UX design",
-    "social media marketing",
   ],
   authors: [{ name: "ScaleUp Web", url: "https://www.scaleupweb.xyz" }],
   creator: "ScaleUp Web",
@@ -46,9 +45,9 @@ export const metadata = {
     locale: "en_US",
     url: "https://www.scaleupweb.xyz",
     siteName: "ScaleUp Web",
-    title: "ScaleUp Web - Website Development, Digital Marketing & Automation",
+    title: "ScaleUp Web - Custom Web Development, Custom Systems & Mobile Apps",
     description:
-      "From Code to Commerce - we build your digital success with blazing-fast web apps, data-driven ads, and intelligent AI chatbots.",
+      "From Code to Commerce - we build your digital success with blazing-fast custom web apps, custom systems (ERP/CRM), e-commerce storefronts, and mobile apps.",
     images: [
       {
         url: "/favicon.ico",
@@ -62,9 +61,9 @@ export const metadata = {
     card: "summary_large_image",
     site: "@scaleupweb",
     creator: "@scaleupweb",
-    title: "ScaleUp Web - Digital Agency",
+    title: "ScaleUp Web - Custom Web Development, Custom Systems & Mobile Apps",
     description:
-      "From Code to Commerce - blazing-fast web apps, data-driven ads & intelligent AI chatbots.",
+      "From Code to Commerce - custom web apps, custom systems (ERP/CRM), and high-performance mobile apps.",
     images: ["/favicon.ico"],
   },
   robots: {

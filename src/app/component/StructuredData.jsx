@@ -35,7 +35,7 @@ export default function StructuredData() {
         },
         image: `${siteUrl}/favicon.ico`,
         description:
-          "ScaleUp Web is a digital agency offering website development, digital marketing, SEO, and WhatsApp chatbot automation for growing businesses.",
+          "ScaleUp Web is a premium digital agency specializing in custom web development, custom system software (ERP/CRM), e-commerce, mobile app development, and technical SEO.",
         email: "contact.scaleupweb@gmail.com",
         telephone: "+8801645650504",
         priceRange: "$$",

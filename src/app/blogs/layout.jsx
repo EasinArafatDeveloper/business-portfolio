@@ -1,22 +1,23 @@
 export const metadata = {
-  title: "Blog \u2014 Digital Marketing, Web Dev & Business Growth Tips",
+  title: "Blog — Web Development, Custom Systems & Mobile Apps",
   description:
-    "Stay ahead with ScaleUp Web blog \u2014 expert insights on web development, digital marketing strategies, WhatsApp automation, and growing your business online.",
+    "Stay ahead with the ScaleUp Web blog — expert insights on high-performance web development, custom system software, e-commerce, mobile app development, and scaling your business.",
   keywords: [
-    "digital marketing blog",
-    "web development tips",
+    "web development blog",
+    "custom system software tips",
     "SEO tips",
+    "e-commerce design",
+    "mobile app development tips",
     "business growth",
-    "WhatsApp automation tips",
     "ScaleUp Web blog",
   ],
   alternates: {
     canonical: "https://www.scaleupweb.xyz/blogs",
   },
   openGraph: {
-    title: "Blog \u2014 ScaleUp Web Digital Insights",
+    title: "Blog — ScaleUp Web Digital Insights",
     description:
-      "Expert tips on web dev, digital marketing & automation to scale your business.",
+      "Expert tips on web dev, custom systems, e-commerce, and mobile app development to scale your business.",
     url: "https://www.scaleupweb.xyz/blogs",
     siteName: "ScaleUp Web",
     type: "website",

@@ -46,7 +46,7 @@ export default function WorkPage() {
         breadcrumb="Work"
         title="Building Digital Experiences,"
         highlight="That Drive Engagement"
-        subtitle="Explore our latest projects across web development, app design, and digital marketing."
+        subtitle="Explore our latest projects across custom web development, bespoke systems, and mobile applications."
         spotlightColor="hsl(158, 89%, 30%)"
       />
 

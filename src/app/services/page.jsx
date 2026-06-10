@@ -57,7 +57,7 @@ export default function ServicesPage() {
         breadcrumb="Services"
         title="From Code to Commerce,"
         highlight="Building Your Digital Success"
-        subtitle="We craft high-performance websites, data-driven marketing campaigns, and smart automation systems — tailored to grow your business."
+        subtitle="We craft high-performance websites, dynamic e-commerce stores, custom system software, and hybrid mobile applications tailored to scale your business operations."
       />
 
       {/* সার্ভিসেস কন্টেন্ট */}
