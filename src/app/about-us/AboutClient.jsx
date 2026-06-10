@@ -55,23 +55,23 @@ export function FounderSection({ members }) {
                         transition={{ duration: 0.8 }}
                         className="relative"
                     >
-                        <div className="absolute -inset-4 bg-gradient-to-tr from-blue-600 to-indigo-600 rounded-[40px] opacity-10 blur-2xl" />
-                        <div className="relative rounded-[32px] overflow-hidden border border-white/10 shadow-2xl">
+                        <div className="absolute -inset-4 bg-gradient-to-tr from-blue-600 to-indigo-600 rounded-[40px] opacity-5 blur-2xl" />
+                        <div className="relative rounded-[32px] overflow-hidden border border-slate-100 shadow-[0_30px_60px_-15px_rgba(15,23,42,0.12)] bg-slate-50 group">
                             <Image 
                                 width={800} 
                                 height={1000} 
                                 src={ceo.image} 
                                 alt={ceo.name} 
-                                className="w-full h-auto object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700" 
+                                className="w-full h-auto object-cover transition-transform duration-[1.5s] group-hover:scale-105" 
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-80" />
                             <div className="absolute bottom-8 left-8">
                                 <h3 className="text-3xl font-black text-white">{ceo.name}</h3>
                                 <p className="text-blue-400 font-bold tracking-widest uppercase text-xs mt-2">Founder & CEO, ScaleUp Web</p>
                             </div>
                         </div>
                     </motion.div>
-
+ 
                     <div>
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -91,23 +91,25 @@ export function FounderSection({ members }) {
                             
                             <div className="grid grid-cols-2 gap-8 mb-10 border-y border-slate-100 py-10">
                                 <div>
-                                    <p className="text-3xl font-black text-slate-900">100%</p>
-                                    <p className="text-sm text-slate-500 font-bold uppercase tracking-wider mt-1">Digital Visibility</p>
+                                    <p className="text-3xl font-black text-slate-900">20 Y/O</p>
+                                    <p className="text-sm text-slate-500 font-bold uppercase tracking-wider mt-1">Young & Ambitious</p>
                                 </div>
                                 <div>
-                                    <p className="text-3xl font-black text-slate-900">Low</p>
-                                    <p className="text-sm text-slate-500 font-bold uppercase tracking-wider mt-1">Operational Cost</p>
+                                    <p className="text-3xl font-black text-slate-900">100%</p>
+                                    <p className="text-sm text-slate-500 font-bold uppercase tracking-wider mt-1">Hand-Crafted Performance</p>
                                 </div>
                             </div>
-
-                            <div className="flex items-center gap-6">
-                                <a href={ceo.socials.linkedin} target="_blank" rel="noopener noreferrer" className="h-14 w-14 rounded-2xl bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-blue-600 hover:text-white transition-all duration-300">
-                                    <Linkedin size={22} />
-                                </a>
-                                <a href={ceo.socials.facebook} target="_blank" rel="noopener noreferrer" className="h-14 w-14 rounded-2xl bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-blue-700 hover:text-white transition-all duration-300">
-                                    <Facebook size={22} />
-                                </a>
-                                <a href={ceo.socials.fiverr} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 h-14 rounded-2xl bg-slate-900 text-white font-bold hover:bg-blue-600 transition-all duration-300">
+ 
+                            <div className="flex flex-wrap items-center gap-4">
+                                <div className="flex items-center gap-3">
+                                    <a href={ceo.socials.linkedin} target="_blank" rel="noopener noreferrer" className="h-14 w-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 hover:scale-105 transition-all duration-300">
+                                        <Linkedin size={22} />
+                                    </a>
+                                    <a href={ceo.socials.facebook} target="_blank" rel="noopener noreferrer" className="h-14 w-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-600 hover:bg-blue-700 hover:text-white hover:border-blue-700 hover:scale-105 transition-all duration-300">
+                                        <Facebook size={22} />
+                                    </a>
+                                </div>
+                                <a href={ceo.socials.fiverr} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-8 h-14 rounded-2xl bg-[#1dbf73] text-white font-bold hover:bg-[#19a462] hover:scale-[1.02] active:scale-95 transition-all duration-300 shadow-lg shadow-[#1dbf73]/20">
                                     Hire on Fiverr <ExternalLink size={18} />
                                 </a>
                             </div>

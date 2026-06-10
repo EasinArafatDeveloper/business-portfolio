@@ -7,17 +7,17 @@ import { Handshake, Lightbulb, Rocket, ShieldCheck } from "lucide-react";
 
 export const generateMetadata = async () => {
     const title = "About Easin Arafat | CEO & Founder of ScaleUp Web";
-    const description = "Learn about Easin Arafat, the Founder and CEO of ScaleUp Web, and our mission to digitize local businesses in Bangladesh with affordable, organized, and high-performance digital systems.";
+    const description = "Meet Easin Arafat, the 20-year-old full-stack developer, founder, and CEO of ScaleUp Web. Discover his mission to digitize Bangladesh's economy with hand-crafted, high-performance web systems.";
 
     return {
         title,
         description,
-        keywords: ["Easin Arafat", "CEO of ScaleUp Web", "Founder of ScaleUp Web", "ScaleUp Web Bangladesh", "Web Developer Bangladesh", "Digitizing Bangladesh Businesses"],
+        keywords: ["Easin Arafat", "20-year-old CEO ScaleUp Web", "Founder of ScaleUp Web", "ScaleUp Web Bangladesh", "Web Developer Bangladesh", "Digitizing Bangladesh Businesses"],
         openGraph: {
             title,
             description,
             type: "website",
-            images: ["https://i.ibb.co.com/PsHs5gk5/WIN-20250731-13-56-16-Pro.jpg"],
+            images: ["https://i.postimg.cc/zGkWC4JB/Easin-A_rafat-3.png"],
         },
     };
 };
@@ -26,8 +26,8 @@ export default function AboutUsPage() {
     const ceoData = {
         name: "Easin Arafat",
         role: "Founder & CEO, Full-Stack Developer",
-        image: "https://i.ibb.co.com/PsHs5gk5/WIN-20250731-13-56-16-Pro.jpg",
-        bio: "Easin Arafat is a visionary tech leader dedicated to digitizing Bangladesh's local economy. As the Founder and CEO of ScaleUp Web, he builds high-performance systems that empower offline businesses to thrive online with minimal cost and maximum efficiency. His goal is to bring 100% digital visibility to every corner of the country's local market.",
+        image: "https://i.postimg.cc/zGkWC4JB/Easin-A_rafat-3.png",
+        bio: "At just 20 years old, Easin Arafat is a passionate full-stack developer and tech entrepreneur dedicated to digitizing Bangladesh's local economy. As the Founder and CEO of ScaleUp Web, he builds custom, lightning-fast Next.js apps and automated digital systems. He is on a mission to help offline shops, brands, and startups transition online with minimal costs and zero technical stress.",
         socials: {
             linkedin: "https://www.linkedin.com/in/easinarafatdev/",
             fiverr: "https://www.fiverr.com/easin_dev",
@@ -36,14 +36,14 @@ export default function AboutUsPage() {
     };
 
     const missionVisionData = {
-        vision: "To become the leading force in Bangladesh's digital transformation, ensuring every local business—no matter how small or offline—has 100% digital visibility and a world-class online presence.",
-        mission: "To provide local businesses with affordable, organized, and easy-to-manage digital systems. We aim to bridge the gap between offline operations and online growth, making technology accessible to every entrepreneur in Bangladesh."
+        vision: "To show that youth is a powerful asset in tech innovation. We envision a future where every local business, store, and brand in Bangladesh operates with high-converting, premium digital infrastructure.",
+        mission: "To break down complex digital barriers for local merchants. We build highly optimized, hand-coded systems that eliminate high agency margins, keeping premium web platforms affordable, simple, and transparent."
     };
 
     const values = [
-        { icon: <Handshake size={28} />, title: "Local Commitment", description: "We are dedicated to the growth of Bangladeshi businesses, providing solutions tailored to our local market's unique needs." },
-        { icon: <ShieldCheck size={28} />, title: "Transparent Systems", description: "Our goal is to create organized, easy-to-understand systems that let business owners manage their operations without technical stress." },
-        { icon: <Rocket size={28} />, title: "Affordable Growth", description: "We believe premium technology shouldn't be expensive. We provide high-performance systems at prices that local businesses can actually afford." },
+        { icon: <Rocket size={28} />, title: "Youthful Speed", description: "We develop fast, launch fast, and iterate instantly. No slow agency bureaucracy, just clean code and modern standards." },
+        { icon: <ShieldCheck size={28} />, title: "Zero-Stress Code", description: "We hand-craft every layout. No bloated plugins or templates, meaning your site requires zero ongoing technical headaches." },
+        { icon: <Handshake size={28} />, title: "Made for Bangladesh", description: "Custom local payment gateways, optimized workflows, and designs engineered specifically to build trust with local customers." },
     ];
 
     // Schema Markup for SEO
@@ -57,7 +57,7 @@ export default function AboutUsPage() {
             "@type": "Person",
             "name": "Easin Arafat",
             "jobTitle": "CEO & Founder",
-            "image": "https://i.ibb.co.com/PsHs5gk5/WIN-20250731-13-56-16-Pro.jpg",
+            "image": "https://i.postimg.cc/zGkWC4JB/Easin-A_rafat-3.png",
             "sameAs": [
                 "https://www.linkedin.com/in/easinarafatdev/",
                 "https://www.facebook.com/easin.arafat.dev"
@@ -74,10 +74,10 @@ export default function AboutUsPage() {
             />
 
             <PageHero 
-                breadcrumb="About Our Journey"
-                title="Digitizing Bangladesh,"
-                highlight="One Business at a Time"
-                subtitle="We are on a mission to bring every local business in Bangladesh online with affordable, high-performance systems."
+                breadcrumb="Meet the Founder"
+                title="Young Energy,"
+                highlight="Big Digital Vision"
+                subtitle="At just 20 years old, Easin Arafat founded ScaleUp Web to bridge the gap between traditional Bangladeshi businesses and world-class modern tech."
                 spotlightColor="hsl(210, 100%, 50%)"
             />
 
