@@ -18,6 +18,12 @@ export default function NewAgreement() {
     price: "",
     timeline: "",
     services: [],
+    templateType: "normal",
+    advancePayment: "",
+    includeDomainHosting: false,
+    domainName: "",
+    hostingPackage: "",
+    domainHostingCost: "",
   });
   
   const [newService, setNewService] = useState("");
@@ -40,7 +46,9 @@ export default function NewAgreement() {
     try {
       const payload = {
         ...formData,
-        price: Number(formData.price)
+        price: Number(formData.price),
+        advancePayment: formData.advancePayment ? Number(formData.advancePayment) : 0,
+        domainHostingCost: formData.domainHostingCost ? Number(formData.domainHostingCost) : 0,
       };
 
       const res = await fetch("/api/agreements", {
@@ -153,6 +161,18 @@ export default function NewAgreement() {
               </h2>
               <div className="space-y-6">
                 <div>
+                  <label className="block text-[11px] font-black uppercase tracking-widest text-slate-400 mb-3 ml-1">Agreement Template Type</label>
+                  <select
+                    value={formData.templateType}
+                    onChange={(e) => setFormData({...formData, templateType: e.target.value})}
+                    className="w-full bg-slate-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:ring-2 focus:ring-purple-600/10 focus:border-purple-600 transition-all font-medium"
+                  >
+                    <option value="normal">Normal Design (Clean & Classic)</option>
+                    <option value="premium">Premium Design (Elegant Dark Accents)</option>
+                    <option value="discount">Special Discount Design (Red/Purple Special)</option>
+                  </select>
+                </div>
+                <div>
                   <label className="block text-[11px] font-black uppercase tracking-widest text-slate-400 mb-3 ml-1">Total Project Fee (৳)</label>
                   <input
                     type="number"
@@ -161,6 +181,16 @@ export default function NewAgreement() {
                     onChange={(e) => setFormData({...formData, price: e.target.value})}
                     className="w-full bg-slate-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:ring-2 focus:ring-purple-600/10 focus:border-purple-600 transition-all font-medium"
                     placeholder="Enter full contract amount in Taka"
+                  />
+                </div>
+                <div>
+                  <label className="block text-[11px] font-black uppercase tracking-widest text-slate-400 mb-3 ml-1">Advance Payment (৳) (Optional)</label>
+                  <input
+                    type="number"
+                    value={formData.advancePayment}
+                    onChange={(e) => setFormData({...formData, advancePayment: e.target.value})}
+                    className="w-full bg-slate-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:ring-2 focus:ring-purple-600/10 focus:border-purple-600 transition-all font-medium"
+                    placeholder="Enter advance amount if any, otherwise leave empty"
                   />
                 </div>
                 <div>
@@ -173,6 +203,57 @@ export default function NewAgreement() {
                     className="w-full bg-slate-50 border border-gray-100 rounded-2xl py-4 px-6 focus:outline-none focus:ring-2 focus:ring-purple-600/10 focus:border-purple-600 transition-all font-medium"
                     placeholder="e.g. 4 Weeks from Date of Signature"
                   />
+                </div>
+                {/* Domain & Hosting Toggle */}
+                <div className="bg-slate-50 p-6 rounded-2xl border border-gray-100 space-y-4">
+                  <label className="flex items-center gap-3 cursor-pointer select-none">
+                    <input
+                      type="checkbox"
+                      checked={formData.includeDomainHosting}
+                      onChange={(e) => setFormData({...formData, includeDomainHosting: e.target.checked})}
+                      className="w-5 h-5 rounded-lg border-gray-300 text-purple-600 focus:ring-purple-500 focus:ring-2"
+                    />
+                    <span className="text-xs font-black uppercase tracking-widest text-slate-600">Include Domain & Hosting details?</span>
+                  </label>
+
+                  {formData.includeDomainHosting && (
+                    <motion.div 
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      className="space-y-4 pt-4 border-t border-gray-200/50"
+                    >
+                      <div>
+                        <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Domain Name</label>
+                        <input
+                          type="text"
+                          value={formData.domainName}
+                          onChange={(e) => setFormData({...formData, domainName: e.target.value})}
+                          className="w-full bg-white border border-gray-100 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-purple-600/10 focus:border-purple-600 transition-all font-medium text-sm"
+                          placeholder="e.g. example.com"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Hosting Package details</label>
+                        <input
+                          type="text"
+                          value={formData.hostingPackage}
+                          onChange={(e) => setFormData({...formData, hostingPackage: e.target.value})}
+                          className="w-full bg-white border border-gray-100 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-purple-600/10 focus:border-purple-600 transition-all font-medium text-sm"
+                          placeholder="e.g. 2GB SSD, LiteSpeed, 1 Year"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Domain & Hosting Cost (৳) (Optional)</label>
+                        <input
+                          type="number"
+                          value={formData.domainHostingCost}
+                          onChange={(e) => setFormData({...formData, domainHostingCost: e.target.value})}
+                          className="w-full bg-white border border-gray-100 rounded-xl py-3 px-4 focus:outline-none focus:ring-2 focus:ring-purple-600/10 focus:border-purple-600 transition-all font-medium text-sm"
+                          placeholder="Enter domain/hosting fee if separate"
+                        />
+                      </div>
+                    </motion.div>
+                  )}
                 </div>
               </div>
               <div className="flex gap-4 mt-12">

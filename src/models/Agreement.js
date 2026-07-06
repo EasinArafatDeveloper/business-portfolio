@@ -33,6 +33,31 @@ const AgreementSchema = new mongoose.Schema({
     unique: true,
     required: true,
   },
+  templateType: {
+    type: String,
+    enum: ["normal", "premium", "discount"],
+    default: "normal",
+  },
+  advancePayment: {
+    type: Number,
+    default: 0,
+  },
+  includeDomainHosting: {
+    type: Boolean,
+    default: false,
+  },
+  domainName: {
+    type: String,
+    default: "",
+  },
+  hostingPackage: {
+    type: String,
+    default: "",
+  },
+  domainHostingCost: {
+    type: Number,
+    default: 0,
+  },
 }, { timestamps: true });
 
 // Use standard registration pattern for production

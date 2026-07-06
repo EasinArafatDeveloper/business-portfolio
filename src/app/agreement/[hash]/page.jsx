@@ -170,6 +170,78 @@ export default function PublicAgreement() {
     );
   }
 
+  const template = agreement.templateType || "normal";
+
+  // Dynamic styling system for templates
+  const styles = {
+    normal: {
+      cardBg: "bg-white text-slate-800",
+      cardBorder: "border border-gray-100",
+      titleColor: "text-slate-900",
+      bodyTextColor: "text-slate-600",
+      accentText: "text-purple-700",
+      accentBg: "bg-purple-50",
+      accentBorder: "border-purple-100",
+      watermarkColor: "text-slate-900 opacity-[0.03] border-slate-900",
+      bulletColor: "bg-purple-500",
+      borderBottom: "border-slate-50",
+      bottomLine: "bg-slate-200",
+      signatureColor: "text-slate-800",
+      headerText: "text-purple-700 font-serif italic",
+      headerSubtext: "text-slate-400",
+      headerLink: "text-purple-600/60",
+      headingText: "text-slate-900",
+      dividerColor: "border-slate-100",
+      labelColor: "text-slate-400",
+      boldText: "text-slate-900",
+      clientCompanyColor: "text-slate-600"
+    },
+    premium: {
+      cardBg: "bg-[#0b0f19] text-slate-300",
+      cardBorder: "border border-slate-800/80",
+      titleColor: "text-white",
+      bodyTextColor: "text-slate-400",
+      accentText: "text-amber-500",
+      accentBg: "bg-amber-500/10",
+      accentBorder: "border-amber-500/20",
+      watermarkColor: "text-amber-500 opacity-[0.02] border-amber-500/50",
+      bulletColor: "bg-amber-500",
+      borderBottom: "border-slate-800",
+      bottomLine: "bg-slate-800",
+      signatureColor: "text-amber-500",
+      headerText: "text-amber-500 font-serif italic",
+      headerSubtext: "text-slate-500",
+      headerLink: "text-amber-500/60",
+      headingText: "text-white",
+      dividerColor: "border-slate-800/60",
+      labelColor: "text-slate-500",
+      boldText: "text-white",
+      clientCompanyColor: "text-slate-400"
+    },
+    discount: {
+      cardBg: "bg-gradient-to-br from-white via-indigo-50/10 to-pink-50/20 text-slate-800",
+      cardBorder: "border-2 border-indigo-100",
+      titleColor: "text-indigo-950",
+      bodyTextColor: "text-slate-600",
+      accentText: "text-rose-600",
+      accentBg: "bg-rose-50",
+      accentBorder: "border-rose-100",
+      watermarkColor: "text-indigo-500 opacity-[0.03] border-indigo-500",
+      bulletColor: "bg-indigo-500",
+      borderBottom: "border-indigo-100/50",
+      bottomLine: "bg-indigo-100",
+      signatureColor: "text-indigo-900",
+      headerText: "text-indigo-700 font-serif italic",
+      headerSubtext: "text-indigo-400/80",
+      headerLink: "text-indigo-600/70",
+      headingText: "text-indigo-950",
+      dividerColor: "border-indigo-100/50",
+      labelColor: "text-indigo-400",
+      boldText: "text-indigo-950",
+      clientCompanyColor: "text-slate-600"
+    }
+  }[template];
+
   return (
     <div className="min-h-screen bg-slate-50 py-12 px-4 selection:bg-purple-100 print:bg-white print:py-0 print:px-0">
       <style dangerouslySetInnerHTML={{ __html: `
@@ -185,8 +257,21 @@ export default function PublicAgreement() {
             margin: 0 !important;
             width: 100% !important;
             max-width: none !important;
+            background: white !important;
+            color: black !important;
           }
           .motion-div { transform: none !important; opacity: 1 !important; }
+          /* Ensure text is black/ink-saving on print */
+          .agreement-card * {
+            color: black !important;
+            background-color: transparent !important;
+            border-color: #e2e8f0 !important;
+          }
+          /* Prevent sections from splitting across print pages */
+          .agreement-card .space-y-8 > div {
+            page-break-inside: avoid !important;
+            break-inside: avoid !important;
+          }
         }
       `}} />
       <div className="max-w-[1000px] mx-auto">
@@ -226,47 +311,50 @@ export default function PublicAgreement() {
           <div className="lg:col-span-2 print:w-full">
             <div 
               ref={documentRef}
-              className="bg-white p-8 md:p-16 rounded-[48px] shadow-2xl shadow-slate-200/50 relative overflow-hidden print:shadow-none print:rounded-none print:p-0 agreement-card"
+              className={`${styles.cardBg} ${styles.cardBorder} p-8 md:p-16 rounded-[48px] shadow-2xl shadow-slate-200/50 relative overflow-hidden print:shadow-none print:rounded-none print:p-0 agreement-card`}
             >
               {!signedSuccess && (
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-45 pointer-events-none opacity-[0.03] select-none text-[120px] font-black text-slate-900 border-[20px] border-slate-900 px-10">
+                <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-45 pointer-events-none ${styles.watermarkColor} select-none text-[120px] font-black border-[20px] border-current px-10`}>
                   DRAFT
                 </div>
               )}
 
               <div className="flex justify-between items-start mb-10">
                 <div>
-                  <h1 className="text-2xl font-black text-purple-700 font-serif italic mb-1 uppercase tracking-tighter">ScaleUp Web</h1>
-                  <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Digital Performance Agency</p>
-                  <p className="text-[10px] text-purple-600/60 font-black mt-1">www.scaleupweb.xyz</p>
+                  <h1 className={`text-2xl font-black ${styles.headerText} mb-1 uppercase tracking-tighter`}>ScaleUp Web</h1>
+                  <p className={`text-[10px] ${styles.headerSubtext} font-bold uppercase tracking-widest`}>Digital Performance Agency</p>
+                  <p className={`text-[10px] ${styles.headerLink} font-black mt-1`}>www.scaleupweb.xyz</p>
                 </div>
                 <div className="text-right">
-                  <h2 className="text-4xl font-black text-slate-900 tracking-tightest leading-none">Agreement</h2>
-                  <p className="text-slate-400 text-xs mt-2">{new Date(agreement.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
+                  {template === "discount" && (
+                    <span className="inline-block bg-rose-600 text-white text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full mb-2">Special Discount Offer</span>
+                  )}
+                  <h2 className={`text-4xl font-black ${styles.headingText} tracking-tightest leading-none`}>Agreement</h2>
+                  <p className={`${styles.labelColor} text-xs mt-2`}>{new Date(agreement.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-10 mb-10">
+              <div className={`grid grid-cols-2 gap-10 mb-10 pb-8 border-b ${styles.dividerColor}`}>
                 <div>
-                  <h4 className="text-[10px] font-black uppercase text-slate-400 mb-2 tracking-[0.2em]">Service Provider</h4>
-                  <div className="text-slate-800 space-y-0.5">
-                    <p className="font-bold text-lg leading-tight">ScaleUp Web</p>
-                    <p className="text-[13px] font-medium text-slate-500">contact.scaleupweb@gmail.com</p>
+                  <h4 className={`text-[10px] font-black uppercase ${styles.labelColor} mb-2 tracking-[0.2em]`}>Service Provider</h4>
+                  <div className={`${styles.textColor} space-y-0.5`}>
+                    <p className={`font-bold text-lg leading-tight ${styles.boldText}`}>ScaleUp Web</p>
+                    <p className={`text-[13px] font-medium ${styles.bodyTextColor}`}>contact.scaleupweb@gmail.com</p>
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-[10px] font-black uppercase text-slate-400 mb-2 tracking-[0.2em]">Client</h4>
-                  <div className="text-slate-800 space-y-0.5 min-h-[40px]">
+                  <h4 className={`text-[10px] font-black uppercase ${styles.labelColor} mb-2 tracking-[0.2em]`}>Client</h4>
+                  <div className={`${styles.textColor} space-y-0.5 min-h-[40px]`}>
                     {agreement.clientName ? (
                       <>
-                        <p className="font-bold text-lg leading-tight">{agreement.clientName}</p>
-                        {agreement.clientCompany && <p className="text-[13px] font-semibold text-slate-600">{agreement.clientCompany}</p>}
-                        <p className="text-[13px] font-medium text-slate-500">{agreement.clientEmail}</p>
-                        {agreement.clientPhone && <p className="text-[13px] font-medium text-slate-500">{agreement.clientPhone}</p>}
-                        {agreement.clientAddress && <p className="text-[13px] font-medium text-slate-500">{agreement.clientAddress}</p>}
+                        <p className={`font-bold text-lg leading-tight ${styles.boldText}`}>{agreement.clientName}</p>
+                        {agreement.clientCompany && <p className={`text-[13px] font-semibold ${styles.clientCompanyColor}`}>{agreement.clientCompany}</p>}
+                        <p className={`text-[13px] font-medium ${styles.bodyTextColor}`}>{agreement.clientEmail}</p>
+                        {agreement.clientPhone && <p className={`text-[13px] font-medium ${styles.bodyTextColor}`}>{agreement.clientPhone}</p>}
+                        {agreement.clientAddress && <p className={`text-[13px] font-medium ${styles.bodyTextColor}`}>{agreement.clientAddress}</p>}
                       </>
                     ) : (
-                      <p className="text-slate-300 italic text-sm">Awaiting client identification...</p>
+                      <p className={`${styles.labelColor} italic text-sm`}>Awaiting client identification...</p>
                     )}
                   </div>
                 </div>
@@ -274,54 +362,110 @@ export default function PublicAgreement() {
 
               <div className="space-y-8">
                 <div>
-                  <h3 className="text-base font-black text-slate-800 mb-2 border-b-2 border-slate-50 pb-1 font-serif italic">01. Project Objectives</h3>
-                  <p className="text-slate-600 leading-relaxed font-medium text-sm">{agreement.projectDescription}</p>
+                  <h3 className={`text-base font-black ${styles.headingText} mb-2 border-b-2 ${styles.borderBottom} pb-1 font-serif italic`}>01. Project Objectives</h3>
+                  <p className={`${styles.bodyTextColor} leading-relaxed font-medium text-sm`}>{agreement.projectDescription}</p>
                 </div>
 
                 <div>
-                  <h3 className="text-base font-black text-slate-800 mb-2 border-b-2 border-slate-50 pb-1 font-serif italic">02. Defined Services</h3>
+                  <h3 className={`text-base font-black ${styles.headingText} mb-2 border-b-2 ${styles.borderBottom} pb-1 font-serif italic`}>02. Defined Services</h3>
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-1.5">
                     {agreement.services.map((s, i) => (
-                      <li key={i} className="flex items-start gap-2 text-slate-600 text-[13px]">
-                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0" />
+                      <li key={i} className={`flex items-start gap-2 ${styles.bodyTextColor} text-[13px]`}>
+                        <div className={`mt-1.5 w-1.5 h-1.5 rounded-full ${styles.bulletColor} flex-shrink-0`} />
                         <span className="font-medium">{s}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="grid grid-cols-2 gap-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                   <div>
-                    <h3 className="text-base font-black text-slate-800 mb-2 border-b-2 border-slate-50 pb-1 font-serif italic">03. Project Fee</h3>
-                    <p className="text-3xl font-black text-slate-900 tracking-tighter">৳{agreement.price.toLocaleString()}</p>
-                    <p className="text-[9px] text-slate-400 font-bold mt-1 uppercase tracking-widest leading-none">Total Investment</p>
+                    <h3 className={`text-base font-black ${styles.headingText} mb-2 border-b-2 ${styles.borderBottom} pb-1 font-serif italic`}>03. Project Fee & Payments</h3>
+                    <div className="space-y-4">
+                      <div>
+                        <p className={`text-3xl font-black ${styles.headingText} tracking-tighter`}>৳{agreement.price.toLocaleString()}</p>
+                        <p className={`text-[9px] ${styles.labelColor} font-bold uppercase tracking-widest leading-none`}>Total Project Fee</p>
+                      </div>
+                      {agreement.advancePayment > 0 && (
+                        <div className={`pt-3 border-t ${styles.dividerColor} flex justify-between items-center gap-6`}>
+                          <div>
+                            <p className={`text-sm font-black ${styles.accentText}`}>৳{agreement.advancePayment.toLocaleString()}</p>
+                            <p className={`text-[8px] ${styles.labelColor} font-bold uppercase tracking-wider`}>Advance Paid</p>
+                          </div>
+                          <div className="text-right">
+                            <p className={`text-sm font-black ${styles.boldText}`}>৳{(agreement.price - agreement.advancePayment).toLocaleString()}</p>
+                            <p className={`text-[8px] ${styles.labelColor} font-bold uppercase tracking-wider`}>Remaining Balance</p>
+                          </div>
+                        </div>
+                      )}
+                    </div>
                   </div>
                   <div>
-                    <h3 className="text-base font-black text-slate-800 mb-2 border-b-2 border-slate-50 pb-1 font-serif italic">04. Timeline</h3>
-                    <p className="text-lg font-bold text-slate-700">{agreement.timeline}</p>
-                    <p className="text-[9px] text-slate-400 font-bold mt-1 uppercase tracking-widest leading-none">Estimated Schedule</p>
+                    <h3 className={`text-base font-black ${styles.headingText} mb-2 border-b-2 ${styles.borderBottom} pb-1 font-serif italic`}>04. Timeline</h3>
+                    <p className={`text-lg font-bold ${styles.boldText}`}>{agreement.timeline}</p>
+                    <p className={`text-[9px] ${styles.labelColor} font-bold mt-1 uppercase tracking-widest leading-none`}>Estimated Schedule</p>
                   </div>
                 </div>
 
-                <div className="pt-10 border-t border-slate-100 grid grid-cols-2 gap-12">
+                {agreement.includeDomainHosting && (
+                  <div>
+                    <h3 className={`text-base font-black ${styles.headingText} mb-2 border-b-2 ${styles.borderBottom} pb-1 font-serif italic`}>05. Domain & Hosting Infrastructure</h3>
+                    <div className={`${template === 'premium' ? 'bg-slate-900/50 border-slate-800' : 'bg-slate-50 border-slate-100'} p-6 rounded-2xl border grid grid-cols-1 md:grid-cols-3 gap-6`}>
+                      {agreement.domainName && (
+                        <div>
+                          <p className={`text-sm font-bold ${styles.boldText}`}>{agreement.domainName}</p>
+                          <p className={`text-[9px] ${styles.labelColor} font-bold uppercase tracking-widest mt-1`}>Domain Name</p>
+                        </div>
+                      )}
+                      {agreement.hostingPackage && (
+                        <div>
+                          <p className={`text-sm font-bold ${styles.boldText}`}>{agreement.hostingPackage}</p>
+                          <p className={`text-[9px] ${styles.labelColor} font-bold uppercase tracking-widest mt-1`}>Hosting Package</p>
+                        </div>
+                      )}
+                      {agreement.domainHostingCost > 0 && (
+                        <div>
+                          <p className={`text-sm font-bold ${styles.accentText}`}>৳{agreement.domainHostingCost.toLocaleString()}</p>
+                          <p className={`text-[9px] ${styles.labelColor} font-bold uppercase tracking-widest mt-1`}>Infrastructure Cost</p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+
+                <div className={`pt-10 border-t ${styles.dividerColor} grid grid-cols-2 gap-12`}>
                   <div className="relative">
                     <div className="h-12 mb-4 flex items-end">
-                      <span className="text-4xl text-slate-800 opacity-90" style={{ fontFamily: "'Dancing Script', cursive" }}>Easin Arafat</span>
+                      <span className="text-4xl opacity-90" style={{ fontFamily: "'Dancing Script', cursive", color: template === "premium" ? "#f59e0b" : "#1e293b" }}>Easin Arafat</span>
                     </div>
-                    <div className="w-full h-[1px] bg-slate-200 mb-2" />
-                    <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Authorized by ScaleUp Web</p>
-                    <p className="text-[10px] font-bold text-slate-900 mt-1">Provider Execution</p>
+                    <div className={`w-full h-[1px] ${styles.bottomLine} mb-2`} />
+                    <p className={`text-[9px] font-black ${styles.labelColor} uppercase tracking-widest`}>Authorized by ScaleUp Web</p>
+                    <p className={`text-[10px] font-bold ${styles.boldText} mt-1`}>Provider Execution</p>
                   </div>
                   <div className="relative">
                     {signedSuccess && agreement.signatureData ? (
                       <div className="motion-div">
-                        <img src={agreement.signatureData} alt="Client Signature" className="h-12 mb-4 object-contain" />
-                        <div className="w-full h-[1px] bg-slate-200 mb-2" />
-                        <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest text-right">Client Digital Execution</p>
-                        <p className="text-[10px] font-bold text-slate-900 mt-1 text-right">{agreement.clientName}</p>
+                        <div className="h-12 mb-4 flex items-end justify-end">
+                          <img 
+                            src={agreement.signatureData} 
+                            alt="Client Signature" 
+                            className="h-12 object-contain" 
+                            style={{ filter: template === 'premium' ? 'invert(1) brightness(2)' : 'none' }} 
+                          />
+                        </div>
+                        <div className={`w-full h-[1px] ${styles.bottomLine} mb-2`} />
+                        <p className={`text-[9px] font-black ${styles.labelColor} uppercase tracking-widest text-right`}>Client Digital Execution</p>
+                        <p className={`text-[10px] font-bold ${styles.boldText} mt-1 text-right`}>{agreement.clientName}</p>
                       </div>
                     ) : (
-                      <div className="h-12 mb-4 flex items-center justify-end text-slate-200 font-serif italic text-xl">Awaiting Client...</div>
+                      <div className="motion-div">
+                        <div className="h-12 mb-4 flex items-end justify-end">
+                          <span className={`text-[13px] ${styles.labelColor} font-serif italic`}>Awaiting Signature...</span>
+                        </div>
+                        <div className={`w-full h-[1px] ${styles.bottomLine} mb-2`} />
+                        <p className={`text-[9px] font-black ${styles.labelColor} uppercase tracking-widest text-right`}>Client Digital Execution</p>
+                        <p className={`text-[10px] font-bold ${styles.boldText} mt-1 text-right italic`}>Awaiting Signature</p>
+                      </div>
                     )}
                   </div>
                 </div>

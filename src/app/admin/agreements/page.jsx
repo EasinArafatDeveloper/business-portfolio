@@ -150,7 +150,7 @@ export default function AdminAgreements() {
                   <div>
                     <h3 className="font-bold text-slate-800 text-lg line-clamp-1">{agreement.projectTitle}</h3>
                     <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">
-                      {agreement.clientName || "Awaiting Client"} • ৳{agreement.price}
+                      {agreement.clientName || "Awaiting Client"} • ৳{agreement.price?.toLocaleString()} {agreement.templateType && `• ${agreement.templateType.toUpperCase()} TEMPLATE`}
                     </p>
                   </div>
                 </div>
