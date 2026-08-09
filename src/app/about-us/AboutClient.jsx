@@ -2,7 +2,7 @@
 import React from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
-import { Linkedin, Facebook, Code, ExternalLink, Sparkles, Target, Zap, ShieldCheck } from "lucide-react";
+import { Linkedin, Facebook, Code, ExternalLink, Sparkles, Target, Zap, ShieldCheck, Phone, Mail } from "lucide-react";
 
 // Helper component for scroll-reveal text animation
 export const AnimatedText = ({ text, className }) => {
@@ -111,6 +111,24 @@ export function FounderSection({ members }) {
                                 </div>
                                 <a href={ceo.socials.fiverr} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-8 h-14 rounded-2xl bg-[#1dbf73] text-white font-bold hover:bg-[#19a462] hover:scale-[1.02] active:scale-95 transition-all duration-300 shadow-lg shadow-[#1dbf73]/20">
                                     Hire on Fiverr <ExternalLink size={18} />
+                                </a>
+                            </div>
+
+                            {/* Direct Contact Details */}
+                            <div className="mt-8 pt-6 border-t border-slate-100 flex flex-wrap gap-4 text-sm font-semibold text-slate-700">
+                                <a 
+                                    href="tel:+8801645650504" 
+                                    className="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-slate-50 border border-slate-100 hover:border-blue-300 hover:bg-blue-50/60 hover:text-blue-600 transition-all duration-300 group"
+                                >
+                                    <Phone size={18} className="text-blue-600 group-hover:scale-110 transition-transform" />
+                                    <span>+8801645650504</span>
+                                </a>
+                                <a 
+                                    href="mailto:contact.scaleupweb@gmail.com" 
+                                    className="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-slate-50 border border-slate-100 hover:border-blue-300 hover:bg-blue-50/60 hover:text-blue-600 transition-all duration-300 group"
+                                >
+                                    <Mail size={18} className="text-blue-600 group-hover:scale-110 transition-transform" />
+                                    <span className="break-all">contact.scaleupweb@gmail.com</span>
                                 </a>
                             </div>
                         </motion.div>

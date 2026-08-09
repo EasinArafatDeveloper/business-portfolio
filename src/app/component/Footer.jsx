@@ -117,9 +117,22 @@ export default function Footer() {
                   <Mail size={20} />
                 </a>
               </div>
-              <p className="mt-6 text-xs font-bold text-slate-500">
-                contact.scaleupweb@gmail.com
-              </p>
+              <div className="mt-6 space-y-2.5 text-xs font-bold text-slate-600 flex flex-col items-center md:items-start">
+                <a 
+                  href="tel:+8801645650504" 
+                  className="inline-flex items-center gap-2 text-slate-600 hover:text-purple-600 transition-colors"
+                >
+                  <Phone size={14} className="text-slate-400 shrink-0" />
+                  <span>+8801645650504</span>
+                </a>
+                <a 
+                  href="mailto:contact.scaleupweb@gmail.com" 
+                  className="inline-flex items-center gap-2 text-slate-600 hover:text-purple-600 transition-colors break-all"
+                >
+                  <Mail size={14} className="text-slate-400 shrink-0" />
+                  <span>contact.scaleupweb@gmail.com</span>
+                </a>
+              </div>
             </div>
             {/* Column 4 */}
             <div>

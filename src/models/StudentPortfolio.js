@@ -101,6 +101,10 @@ const StudentPortfolioSchema = new mongoose.Schema({
     enum: ["draft", "submitted", "published"],
     default: "draft",
   },
+  isClaimed: {
+    type: Boolean,
+    default: false,
+  },
 }, { timestamps: true });
 
 export default mongoose.models.StudentPortfolio || mongoose.model("StudentPortfolio", StudentPortfolioSchema);

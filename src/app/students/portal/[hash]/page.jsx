@@ -21,7 +21,12 @@ import {
   Github,
   Linkedin,
   FileText,
-  Image as ImageIcon
+  Image as ImageIcon,
+  Rocket,
+  Palette,
+  ShieldCheck,
+  Code,
+  Gift
 } from "lucide-react";
 
 
@@ -33,6 +38,7 @@ export default function StudentDashboardPage() {
   const [error, setError] = useState("");
   const [saving, setSaving] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
+  const [claiming, setClaiming] = useState(false);
   
   // New Skill Input State
   const [newSkill, setNewSkill] = useState("");
@@ -66,6 +72,34 @@ export default function StudentDashboardPage() {
       ...portfolio,
       [e.target.name]: e.target.value
     });
+  };
+
+  const handleClaim = async () => {
+    setClaiming(true);
+    try {
+      const res = await fetch(`/api/promo/students/${hash}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...portfolio,
+          isClaimed: true
+        }),
+      });
+
+      if (res.ok) {
+        setPortfolio({
+          ...portfolio,
+          isClaimed: true
+        });
+      } else {
+        alert("Failed to claim portfolio. Please try again.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Error occurred while claiming portfolio.");
+    } finally {
+      setClaiming(false);
+    }
   };
 
   const handleSave = async (isPublish = false) => {
@@ -211,38 +245,140 @@ export default function StudentDashboardPage() {
         </div>
 
         <div className="flex items-center gap-3">
-          {portfolio.status === "published" && (
-            <span className="rounded-full bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-emerald-400">
-              Status: Published
+          {!portfolio.isClaimed ? (
+            <span className="rounded-full bg-yellow-500/10 border border-yellow-500/30 px-3.5 py-1.5 text-[10px] font-black uppercase tracking-widest text-yellow-400 flex items-center gap-1.5">
+              <Gift size={12} className="animate-pulse" /> Status: Unclaimed
             </span>
+          ) : (
+            <>
+              {portfolio.status === "published" && (
+                <span className="rounded-full bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-emerald-400">
+                  Status: Published
+                </span>
+              )}
+              <a 
+                href={`/students/preview/${hash}`} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="inline-flex items-center gap-1.5 rounded-xl border border-white/10 px-4 py-2.5 text-xs font-bold text-neutral-400 hover:text-white hover:border-white/20 transition-all"
+              >
+                Live Site <ExternalLink size={13} />
+              </a>
+              <button
+                onClick={() => handleSave(false)}
+                disabled={saving}
+                className="inline-flex items-center gap-1.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 px-5 py-2.5 text-xs font-black uppercase text-white transition-all disabled:opacity-50"
+              >
+                {saving ? <Loader2 className="animate-spin" size={14} /> : <Save size={14} />} Save Draft
+              </button>
+              <button
+                onClick={() => handleSave(true)}
+                disabled={saving}
+                className="inline-flex items-center gap-1.5 rounded-xl bg-blue-600 hover:bg-blue-500 px-5 py-2.5 text-xs font-black uppercase text-white transition-all disabled:opacity-50 shadow-lg shadow-blue-600/10"
+              >
+                {saving ? <Loader2 className="animate-spin" size={14} /> : <Check size={14} />} Publish
+              </button>
+            </>
           )}
-          <a 
-            href={`/students/preview/${hash}`} 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="inline-flex items-center gap-1.5 rounded-xl border border-white/10 px-4 py-2.5 text-xs font-bold text-neutral-400 hover:text-white hover:border-white/20 transition-all"
-          >
-            Live Site <ExternalLink size={13} />
-          </a>
-          <button
-            onClick={() => handleSave(false)}
-            disabled={saving}
-            className="inline-flex items-center gap-1.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 px-5 py-2.5 text-xs font-black uppercase text-white transition-all disabled:opacity-50"
-          >
-            {saving ? <Loader2 className="animate-spin" size={14} /> : <Save size={14} />} Save Draft
-          </button>
-          <button
-            onClick={() => handleSave(true)}
-            disabled={saving}
-            className="inline-flex items-center gap-1.5 rounded-xl bg-blue-600 hover:bg-blue-500 px-5 py-2.5 text-xs font-black uppercase text-white transition-all disabled:opacity-50 shadow-lg shadow-blue-600/10"
-          >
-            {saving ? <Loader2 className="animate-spin" size={14} /> : <Check size={14} />} Publish
-          </button>
         </div>
       </header>
 
       {/* Main split dashboard content */}
-      <main className="flex-1 flex flex-col lg:flex-row overflow-hidden">
+      {!portfolio.isClaimed ? (
+        <main className="flex-grow flex items-center justify-center p-6 relative overflow-y-auto min-h-[calc(100vh-73px)]">
+          {/* Beautiful glowing abstract background elements */}
+          <div className="absolute top-1/4 left-1/4 w-80 h-80 bg-blue-50/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-50/10 rounded-full blur-3xl pointer-events-none" />
+
+          {/* Deep dark neon glassmorphic card */}
+          <div className="max-w-2xl w-full bg-[#0f1015] border border-white/10 rounded-[32px] p-8 lg:p-12 relative overflow-hidden shadow-2xl shadow-blue-500/5 hover:border-white/20 transition-all duration-300">
+            {/* Top decorative badge */}
+            <div className="flex items-center gap-2 mb-6">
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-black tracking-widest uppercase bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                <Gift size={13} className="animate-bounce" /> EXCLUSIVE STUDENT ACCESS
+              </span>
+            </div>
+
+            {/* Typography */}
+            <div className="space-y-4">
+              <h2 className="text-3xl lg:text-4xl font-black text-white leading-tight">
+                Unlock Your Free <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400">One-Page Portfolio</span> Website 🚀
+              </h2>
+              <p className="text-neutral-400 font-semibold text-sm leading-relaxed">
+                Hey <span className="text-white font-bold">{portfolio.fullName}</span>, welcome to your dashboard! To activate your responsive developer portfolio, claim it below. Once claimed, you can fully customize your bio, skills, and projects in real-time.
+              </p>
+            </div>
+
+            {/* Premium features list */}
+            <div className="my-8 space-y-4 border-t border-b border-white/5 py-6">
+              <div className="flex items-start gap-3">
+                <div className="h-6 w-6 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center shrink-0 mt-0.5">
+                  <Rocket size={12} />
+                </div>
+                <div>
+                  <h4 className="text-xs font-black text-white uppercase tracking-wider">Lightning-Fast Next.js & React App</h4>
+                  <p className="text-neutral-500 text-xs font-semibold">Coded using highly-optimized, search-engine friendly modern architectures.</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="h-6 w-6 rounded-lg bg-indigo-500/10 text-indigo-400 flex items-center justify-center shrink-0 mt-0.5">
+                  <Palette size={12} />
+                </div>
+                <div>
+                  <h4 className="text-xs font-black text-white uppercase tracking-wider">5 Beautiful Theme Accent Colors</h4>
+                  <p className="text-neutral-500 text-xs font-semibold">Switch colors in a click to fit your personal branding style.</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="h-6 w-6 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center shrink-0 mt-0.5">
+                  <Code size={12} />
+                </div>
+                <div>
+                  <h4 className="text-xs font-black text-white uppercase tracking-wider">Custom Projects & Social Links</h4>
+                  <p className="text-neutral-500 text-xs font-semibold">Expose your GitHub, LinkedIn, Resume, and unlimited portfolio projects.</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="h-6 w-6 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                  <ShieldCheck size={12} />
+                </div>
+                <div>
+                  <h4 className="text-xs font-black text-white uppercase tracking-wider">100% Free Hosting & Support</h4>
+                  <p className="text-neutral-500 text-xs font-semibold">Fully hosted on lightning fast CDN networks under Easin's ScaleUp Web agency.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Verification Metadata */}
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-neutral-500 font-semibold mb-6">
+              <span>University: <strong className="text-neutral-300">{portfolio.university}</strong></span>
+              <span className="hidden sm:inline text-white/10">•</span>
+              <span>Department: <strong className="text-neutral-300">{portfolio.department}</strong></span>
+            </div>
+
+            {/* CTA Button */}
+            <button
+              onClick={handleClaim}
+              disabled={claiming}
+              className="w-full py-4.5 rounded-2xl font-black text-xs uppercase tracking-widest text-white transition-all bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 disabled:opacity-50 shadow-xl shadow-indigo-600/20 active:scale-[0.98] flex items-center justify-center gap-2"
+            >
+              {claiming ? (
+                <>
+                  <Loader2 className="animate-spin" size={16} /> Activating Portfolio...
+                </>
+              ) : (
+                <>
+                  Claim My Free Portfolio Website & Start Customizing <Check size={16} />
+                </>
+              )}
+            </button>
+          </div>
+        </main>
+      ) : (
+        <main className="flex-1 flex flex-col lg:flex-row overflow-hidden">
         
         {/* Left customization panel */}
         <section className="w-full lg:w-1/2 overflow-y-auto p-6 lg:p-10 space-y-10 border-r border-white/5 max-h-[calc(100vh-73px)]">
@@ -558,6 +694,7 @@ export default function StudentDashboardPage() {
         </section>
 
       </main>
+      )}
     </div>
   );
 }

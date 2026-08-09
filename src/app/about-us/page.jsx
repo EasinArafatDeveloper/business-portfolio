@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import PageHero from "../component/PageHero";
 import { FounderSection, MissionVision, AnimatedText } from "./AboutClient";
-import { Handshake, Lightbulb, Rocket, ShieldCheck } from "lucide-react";
+import { Handshake, Lightbulb, Rocket, ShieldCheck, Phone, Mail } from "lucide-react";
 
 export const generateMetadata = async () => {
     const title = "About Easin Arafat | CEO & Founder of ScaleUp Web";
@@ -131,7 +131,25 @@ export default function AboutUsPage() {
                             <div className="absolute top-0 left-0 w-full h-full opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }} />
                             <div className="relative z-10">
                                 <h2 className="text-4xl lg:text-6xl font-black text-white mb-8">Ready to bring your business<br />into the <span className="text-blue-500 italic">Digital Age?</span></h2>
-                                <p className="text-slate-400 text-lg mb-12 max-w-2xl mx-auto">Join the movement of local businesses scaling their operations with professional, organized systems.</p>
+                                <p className="text-slate-400 text-lg mb-8 max-w-2xl mx-auto">Join the movement of local businesses scaling their operations with professional, organized systems.</p>
+                                
+                                <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
+                                    <a 
+                                        href="tel:+8801645650504" 
+                                        className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-slate-800/80 hover:bg-slate-800 text-slate-200 hover:text-white rounded-2xl font-bold transition-all duration-300 border border-slate-700/80 text-sm"
+                                    >
+                                        <Phone size={18} className="text-blue-400" />
+                                        +8801645650504
+                                    </a>
+                                    <a 
+                                        href="mailto:contact.scaleupweb@gmail.com" 
+                                        className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-slate-800/80 hover:bg-slate-800 text-slate-200 hover:text-white rounded-2xl font-bold transition-all duration-300 border border-slate-700/80 text-sm"
+                                    >
+                                        <Mail size={18} className="text-blue-400" />
+                                        contact.scaleupweb@gmail.com
+                                    </a>
+                                </div>
+
                                 <Link 
                                     href="/contact" 
                                     className="inline-flex items-center gap-3 px-10 py-5 bg-blue-600 text-white rounded-2xl font-black uppercase tracking-widest hover:bg-blue-500 transition-all duration-300 shadow-xl shadow-blue-600/20"

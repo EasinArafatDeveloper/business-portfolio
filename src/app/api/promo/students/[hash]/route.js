@@ -69,6 +69,10 @@ export async function PUT(req, { params }) {
       portfolio.status = data.status;
     }
 
+    if (typeof data.isClaimed === "boolean") {
+      portfolio.isClaimed = data.isClaimed;
+    }
+
     await portfolio.save();
 
     return NextResponse.json({ success: true, portfolio });
